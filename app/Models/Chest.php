@@ -11,4 +11,9 @@ class Chest extends Model
     
     protected  $guarded = ['Rubys', 'Chances', 'Coins', 'Score'];
     protected  $hidden = ['id', 'created_at', 'updated_at','user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

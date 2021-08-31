@@ -17,13 +17,13 @@ class CreateModulesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->boolean('accessible')->default(false);
-            $table->unsignedBigInteger('next_module_id')->unique()->nullable();
+            //$table->boolean('accessible')->default(false);
+            //$table->unsignedBigInteger('next_module_id')->unique()->nullable();
             $table->timestamps();
         });
-        Schema::table('modules', function (Blueprint $table) {
+        /*Schema::table('modules', function (Blueprint $table) {
             $table->foreign('next_module_id')->references('id')->on('modules')->onDelete('cascade');
-        });
+        });*/
     }
 
     /**

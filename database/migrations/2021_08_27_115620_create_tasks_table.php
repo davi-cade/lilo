@@ -17,14 +17,14 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->boolean('accessible')->default(false);
+            //$table->boolean('accessible')->default(false);
             $table->unsignedBigInteger('belonging_module_id');
-            $table->unsignedBigInteger('next_task_id')->unique();
+            //$table->unsignedBigInteger('next_task_id')->unique();
             $table->timestamps();
         });
         Schema::table('tasks', function (Blueprint $table) {
             $table->foreign('belonging_module_id')->references('id')->on('modules')->onDelete('cascade');
-            $table->foreign('next_task_id')->references('id')->on('tasks')->onDelete('cascade');
+            //$table->foreign('next_task_id')->references('id')->on('tasks')->onDelete('cascade');
         });
     }
 
