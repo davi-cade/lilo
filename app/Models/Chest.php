@@ -9,10 +9,12 @@ class Chest extends Model
 {
     use HasFactory;
     
-    protected  $guarded = ['Rubys', 'Chances', 'Coins', 'Score'];
-    protected  $hidden = ['id', 'created_at', 'updated_at','user_id'];
+    protected  $fillable = ['user_id'];
+    protected  $guarded = ['rubys', 'chances', 'coins', 'score', 'user_id'];
+    protected  $hidden = ['id', 'user_id', 'created_at', 'updated_at'];
 
-    public function user(){
-        
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

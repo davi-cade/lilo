@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTasksTable extends Migration
+class AddUserForeignKeyChests extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description'); 
-            $table->unsignedBigInteger('belonging_module_id');
-            $table->timestamps();
+        Schema::table('chests', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::table('chests', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
     }
 }

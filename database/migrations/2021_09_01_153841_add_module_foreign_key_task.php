@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTasksTable extends Migration
+class AddModuleForeignKeyTask extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('description'); 
-            $table->unsignedBigInteger('belonging_module_id');
-            $table->timestamps();
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->foreign('belonging_module_id')->references('id')->on('modules')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropForeign(['belonging_module_id']);
+        });
     }
 }

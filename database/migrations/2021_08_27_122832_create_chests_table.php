@@ -14,16 +14,12 @@ class CreateChestsTable extends Migration
     public function up()
     {
         Schema::create('chests', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->unique();
-            $table->integer('Rubys');
-            $table->integer('Chances');
-            $table->integer('Coins');
-            $table->bigInteger('Score');
+            $table->id();
+            $table->integer('rubys')->default(0);
+            $table->integer('chances')->default(0);
+            $table->integer('coins')->default(0);
+            $table->bigInteger('score')->default(0);
             $table->timestamps();
-        });
-
-        Schema::table('chests', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
