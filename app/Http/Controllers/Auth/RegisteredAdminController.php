@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
-class RegisteredUserController extends Controller
+class RegisteredAdminController extends Controller
 {
     /**
      * Display the registration view.
@@ -21,7 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('administrator.adminregister');
     }
 
     /**
@@ -46,14 +46,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $chest = Chest::create(['user_id' => $user->getId()]);
-
-        $user->attachRole(2);
+        $user->attachRole(1);
 
         event(new Registered($user));
-
-        Auth::login($user);
         
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->back();
     }
 }

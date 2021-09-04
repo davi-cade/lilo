@@ -10,11 +10,9 @@ class RedirectController extends Controller
     public function index(){
 
         if(Auth::user()->hasRole('user')){
-
-            return redirect('/painel');
+            return redirect('/home');
 
        }elseif(Auth::user()->hasRole('administrator')){
-
             return redirect('/dashboard');
        }
 
