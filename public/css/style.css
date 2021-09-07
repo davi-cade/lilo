@@ -15,6 +15,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 html,
@@ -28,14 +29,14 @@ body {
 .a{
     font-style: normal;
     font-weight: 900;
-    font-family: Nunito;
+    font-family: 'Nunito';
     color:var(--black);
 }
 
 .b{
     font-style: normal;
     font-weight: 900;
-    font-family: Nunito;
+    font-family: 'Nunito';
     color:var(--black);
     font-size:-8rem;
 }
@@ -141,7 +142,7 @@ element.style {
 
     font-style: normal;
     font-weight: 900;
-    font-family: Nunito;
+    font-family: 'Nunito';
     text-transform: uppercase;
     
 }
@@ -158,7 +159,7 @@ button:active{
 }
 
 .heart{
-    font-family: Nunito;
+    font-family: 'Nunito';
     font-style: normal;
     font-weight: 900;
     line-height: 150px;

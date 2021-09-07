@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ResourceControllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
