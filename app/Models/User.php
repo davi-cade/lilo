@@ -14,7 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = ['name','email','password'];
+    protected $fillable = ['name','email','password', 'avatar'];
 
     protected $guarded = ['id'];
 

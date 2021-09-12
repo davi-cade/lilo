@@ -19,7 +19,7 @@ class AdminDashboardController extends Controller
 
     public function index(){
         $modules =  $this->module->getAll();
-        $toalNumberModules =  $this->module->count();
+        $totalNumberModules =  $this->module->count();
         return view('administrator.dashboard', compact('modules', 'totalNumberModules'));
     }
 }

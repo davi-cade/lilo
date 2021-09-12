@@ -9,8 +9,13 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
+
+            <div class="mt-4">
+                <label for="avatar">Por favor, faça o upload da sua imagem</label>
+                <input type="file" name="avatar" id="avatar">
+            </div>
 
             <!-- Name -->
             <div>

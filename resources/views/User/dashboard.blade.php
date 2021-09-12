@@ -7,15 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="{{ route('logout') }}">
+    <header>
+        <h1>{{Auth::user()->name}}</h1>
+        <img src="{{asset(Auth::user()->avatar)}}" alt="user-avatar">
+
+        <h1>Rubis: {{$chests['rubys']}}</h1>
+        <h1>Coin: {{$chests['coins']}}</h1>
+        <h1>Chances: {{$chests['chances']}}</h1>
+        <h1>Score: {{$chests['score']}}</h1>
+        
+        <form method="POST" action="{{ route('logout') }}">
         @csrf
         <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
     </form>
-    <h1>{{Auth::user()->name}}</h1>
-    <h1>Rubis: {{$chests['rubys']}}</h1>
-    <h1>Coin: {{$chests['coins']}}</h1>
-    <h1>Chances: {{$chests['chances']}}</h1>
-    <h1>Score: {{$chests['score']}}</h1>
+    </header>
 
     <a href="{{url('')}}">Criar novo grupo</a>
 

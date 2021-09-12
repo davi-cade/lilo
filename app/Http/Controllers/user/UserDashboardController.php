@@ -17,7 +17,7 @@ class UserDashboardController extends Controller
     }
 
     public function index(){
-        $chests = $this->chest->getById(Auth::user()->getId())->first()->toArray();
+        $chests = $this->chest->getByField('user_id', Auth::user()->getId());
         return view('user.dashboard', compact('chests'));
     }
 }

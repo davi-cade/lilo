@@ -21,7 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('login-and-register.login-and-register');
+        return view('auth.register');
     }
 
     /**
@@ -38,13 +38,36 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'avatar' => ['sometimes', 'image', 'mimes:jpg,jpeg,png,svg,bmp', 'max:5000'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
+            $requestImage = $request->avatar;
+
+            $extension = $requestImage->extension();
+
+            $pastName = md5($request->email.strtotime("now"));
+
+            $path = 'img/userProfile/'.$pastName;
+
+            $imageName = md5($requestImage->getClientOriginalName().strtotime("now").".".$extension);
+
+            $requestImage->move(public_path($path), $imageName);
+
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'avatar' => $path."/".$imageName
+                ]);
+
+        }else{
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                ]); 
+        }
 
         $chest = Chest::create(['user_id' => $user->getId()]);
 
