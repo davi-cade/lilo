@@ -3,21 +3,20 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\ChestRepository;
-use App\Models\Chest;
-use Illuminate\Support\Facades\Auth;
+use App\Services\PlayerService;
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 
 class UserDashboardController extends Controller
 {
-    protected $chest;
-    
-    public function __construct(ChestRepository $chestModel){
-        $this->chest = $chestModel;
-    }
+    public function index(PlayerService $service){
 
-    public function index(){
-        $chests = $this->chest->getByField('user_id', Auth::user()->getId());
-        return view('user.dashboard', compact('chests'));
+        $playerService = $service ;
+
+        $player = $playerService->getFirstByField('user_id', Auth::user()->getId()); 
+       
+        $instanceModule =  $playerService->getByField('user_id', Auth::user()->getId())->modulePlayer()->with('module')->get();
+
+        return view('user.dashboard', compact('player', 'instanceModule'));
     }
 }

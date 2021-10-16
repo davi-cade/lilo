@@ -15,15 +15,11 @@ class CreateModulesTable extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('title');
             $table->text('description');
-            //$table->boolean('accessible')->default(false);
-            //$table->unsignedBigInteger('next_module_id')->unique()->nullable();
             $table->timestamps();
         });
-        /*Schema::table('modules', function (Blueprint $table) {
-            $table->foreign('next_module_id')->references('id')->on('modules')->onDelete('cascade');
-        });*/
     }
 
     /**

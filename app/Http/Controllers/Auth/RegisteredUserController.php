@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Models\Chest;
+use App\Services\UserService;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
 {
+
+    protected $service;
+
+    public function  __construct(UserService $userService){
+        $this->service = $userService;
+    }
     /**
      * Display the registration view.
      *
@@ -41,42 +45,17 @@ class RegisteredUserController extends Controller
             'avatar' => ['sometimes', 'image', 'mimes:jpg,jpeg,png,svg,bmp', 'max:5000'],
         ]);
 
+        $img = '/img/userProfile/default-avatar.svg';
         if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
-            $requestImage = $request->avatar;
-
-            $extension = $requestImage->extension();
-
             $pastName = md5($request->email.strtotime("now"));
-
-            $path = 'img/userProfile/'.$pastName;
-
-            $imageName = md5($requestImage->getClientOriginalName().strtotime("now").".".$extension);
-
-            $requestImage->move(public_path($path), $imageName);
-
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'avatar' => $path."/".$imageName
-                ]);
-
-        }else{
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                ]); 
+            $img ='storage/'.($request->file('avatar')->store('img/'.$pastName.'/userProfile'));
         }
 
-        $chest = Chest::create(['user_id' => $user->getId()]);
-
+        $user = $this->service->store($request->name, $request->email, $request->password, $img);
         $user->attachRole(2);
 
         event(new Registered($user));
-
         Auth::login($user);
-        
         return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\ResourceControllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class GroupController extends Controller
+class MissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('user.group.index');
+        //
     }
 
     /**
@@ -24,7 +24,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('user.group.create');
+        return view('administrator.mission.create');
     }
 
     /**

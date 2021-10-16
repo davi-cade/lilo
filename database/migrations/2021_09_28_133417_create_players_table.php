@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserForeignKeyToChests extends Migration
+class CreatePlayersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,15 @@ class AddUserForeignKeyToChests extends Migration
      */
     public function up()
     {
-        Schema::table('chests', function (Blueprint $table) {
+        Schema::create('players', function (Blueprint $table) {
+            $table->id();
+            $table->string('nickname')->unique();
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('rubys')->default(0);
+            $table->integer('chances')->default(0);
+            $table->integer('coins')->default(0);
+            $table->bigInteger('score')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +32,6 @@ class AddUserForeignKeyToChests extends Migration
      */
     public function down()
     {
-        Schema::table('chests', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
+        Schema::dropIfExists('players');
     }
 }

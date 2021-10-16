@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Models\Chest;
-use App\Providers\RouteServiceProvider;
+use App\Services\AdminService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
 class RegisteredAdminController extends Controller
 {
+    protected $ServiceOfAdmin;
+
+    public function  __construct(AdminService $adminService){
+        $this->ServiceOfAdmin = $adminService;
+    }
     /**
      * Display the registration view.
      *
@@ -21,7 +22,7 @@ class RegisteredAdminController extends Controller
      */
     public function create()
     {
-        return view('administrator.adminregister');
+        return view('administrator.admin-register');
     }
 
     /**
@@ -40,15 +41,11 @@ class RegisteredAdminController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $admin = $this->ServiceOfAdmin->store($request->name, $request->email, $request->password);
 
-        $user->attachRole(1);
+        $admin->attachRole(1);
 
-        event(new Registered($user));
+        event(new Registered($admin));
         
         return redirect()->back();
     }

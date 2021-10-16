@@ -22,7 +22,7 @@ html,
 body {
     height: 100vh;
     overflow: hidden;
-    background-color:var(--cor-primaria);
+    /*background-color:var(--cor-primaria);*/
     font-family: 'Nunito', sans-serif;
 }
 

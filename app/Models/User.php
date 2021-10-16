@@ -22,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $casts = ['email_verified_at' => 'datetime'];
 
-    public function getId(){ return $this->id; }
-
-    public function chest(){ return $this->hasOne(Chest::class, 'user_id'); }
+    public function getId(){
+        return $this->id;
+    }
 }

@@ -11,18 +11,32 @@
         <h1>{{Auth::user()->name}}</h1>
         <img src="{{asset(Auth::user()->avatar)}}" alt="user-avatar">
 
-        <h1>Rubis: {{$chests['rubys']}}</h1>
-        <h1>Coin: {{$chests['coins']}}</h1>
-        <h1>Chances: {{$chests['chances']}}</h1>
-        <h1>Score: {{$chests['score']}}</h1>
+        <h1>Rubis: {{$player['rubys']}}</h1>
+        <h1>Coin: {{$player['coins']}}</h1>
+        <h1>Chances: {{$player['chances']}}</h1>
+        <h1>Score: {{$player['score']}}</h1>
+
+        <a href="{{url('/perfil')}}">Perfil</a>
+        <a href="{{url('')}}">Grupo</a>
         
         <form method="POST" action="{{ route('logout') }}">
         @csrf
         <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
-    </form>
+        </form>
     </header>
-
-    <a href="{{url('')}}">Criar novo grupo</a>
-
+    <main>
+        
+        <div>
+        @foreach ($instanceModule as $key)
+            <h2>{{$key->module->getTitle()}}</h2>
+            <p>{{$key->module->getDescription()}}</p>
+            <div>
+                <p>{{
+                    number_format((($key->getTotalAssimilatedCard()/$key->getTotalAvailableCard())*100),0,",",".");
+                }}%</p>
+            </div>
+        @endforeach
+        </div>
+    </main>
 </body>
 </html>

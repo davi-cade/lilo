@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChestsTable extends Migration
+class CreateMissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateChestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chests', function (Blueprint $table) {
+        Schema::create('missions', function (Blueprint $table) {
             $table->id();
-            $table->integer('rubys')->default(0);
-            $table->integer('chances')->default(0);
-            $table->integer('coins')->default(0);
-            $table->bigInteger('score')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateChestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chests');
+        Schema::dropIfExists('missions');
     }
 }

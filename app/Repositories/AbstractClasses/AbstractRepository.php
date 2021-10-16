@@ -19,15 +19,19 @@ abstract class AbstractRepository{
     }
 
     public function getById($id){
-        return $this->model::where('id', $id)->first()->toArray();
+        return $this->model::where('id', $id)->firstOrFail();
     }
 
     public function getBySlug($slug){
-        return $this->model::where('slug', $slug)->get();
+        return $this->model::where('slug', $slug)->firstOrFail();
     }
 
-    public function getByField($field, $id){
-        return $this->model::where($field, $id)->first()->toArray();
+    public function getByField($field, $value){
+        return $this->model::where($field, $value)->get();
+    }
+
+    public function getFirstByField($field, $value){
+        return $this->model::where($field, $value)->first();
     }
 
     public function count(){

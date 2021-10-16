@@ -16,20 +16,7 @@
     </header>
     <main>
         <a href="{{url('/dashboard/registro')}}">Cadastrar novo Administardor</a>
-        <div>
-            <p>Número de Módulos: {{$totalNumberModules}}</p>
-            @foreach ($modules as $module)
-                <div style="border:2px solid gray;">
-                    <input type="text" name="" id="" value="{{$module->title}}">
-                    <textarea name="" id="" style="width:500px;">
-                        {{$module->description}}
-                    </textarea>
-                    <a href="{{url('')}}"></a>
-                </div>
-            @endforeach
-        </div>
-        
-                            
+        <a href="{{url('/module')}}">Módulos</a>                  
     </main>
 </body>
 </html>
