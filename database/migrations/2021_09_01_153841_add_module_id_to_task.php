@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserAdmForeignKeyToGroup extends Migration
+class AddModuleIdToTask extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUserAdmForeignKeyToGroup extends Migration
      */
     public function up()
     {
-        Schema::table('groups', function (Blueprint $table) {
-            $table->foreign('admin_nickname')->references('nickname')->on('players')->onUpdate('cascade')->onDelete('cascade');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->foreign('belonging_module_id')->references('id')->on('modules')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -25,8 +25,8 @@ class AddUserAdmForeignKeyToGroup extends Migration
      */
     public function down()
     {
-        Schema::table('groups', function (Blueprint $table) {
-            $table->dropForeign(['admin_nickname']);
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropForeign(['belonging_module_id']);
         });
     }
 }

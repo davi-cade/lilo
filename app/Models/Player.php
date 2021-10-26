@@ -22,6 +22,14 @@ class Player extends Model
     }
 
     public function modulePlayer(){
-        return $this->hasMany('App\Models\Pivots\ModulePlayer', 'player_id', 'id');
+        return $this->hasMany('App\Models\Pivots\ModulePlayer', 'player_nickname', 'nickname');
+    }
+
+    public function myGroups(){
+        return $this->hasMany(Group::class, 'admin_nickname');
+    }
+
+    public function groupPlayer(){
+        return $this->hasMany('App\Models\Pivots\GroupPlayer', 'player_nickname', 'nickname');
     }
 }

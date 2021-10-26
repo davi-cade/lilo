@@ -21,15 +21,32 @@ class LaunchService
     }
 
     public function modulesStarter($id){
+
         $allModule = $this->moduleService->getAll();
+
         foreach ($allModule as $key){
-            $user = ModuleUser::create([
+            ModuleUser::create([
                 'user_id' => $id,
                 'module_id' => $key->getId(),
                 'total_assimilated_card' => 0,
-                'total_available_card' => 9,
+                'total_available_card' => 0,
             ]);
         }
+    }
+
+    public function modulePublisher($id){
+
+        $allPlayer = $this->playerService->getAll();
+
+        foreach ($allPlayer as $key){
+            ModuleUser::create([
+                'user_id' => $key->getId(),
+                'module_id' => $id,
+                'total_assimilated_card' => 0,
+                'total_available_card' => 0,
+            ]);
+        }
+
     }
 
 }

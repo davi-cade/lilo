@@ -22,5 +22,10 @@ class RedirectController extends Controller
         }elseif(Auth::user()->hasRole('administrator')){
                 return redirect('/dashboard');
         }
+        
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('login');
     }
 }

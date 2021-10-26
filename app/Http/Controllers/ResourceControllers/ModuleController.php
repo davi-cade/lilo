@@ -8,18 +8,18 @@ use Illuminate\Http\Request;
 
 class ModuleController extends Controller
 {
-
     protected $module;
 
-    public function  __construct(ModuleService $moduleService){
+    public function __construct(ModuleService $moduleService)
+    {
         $this->module = $moduleService;
     }
 
     /**
      * Display a listing of the resource.
+     * 
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         $totalNumberModules = $this->module->count();
@@ -29,9 +29,9 @@ class ModuleController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * 
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         return view('administrator.module.create');
@@ -46,13 +46,10 @@ class ModuleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'slug' => ['required', 'string', 'max:255', 'unique:modules'],
-            'description' => ['required', 'min:3', 'max:1000'],
-            'img' => ['sometimes', 'image', 'mimes:jpg,jpeg,png,svg,bmp', 'max:5000'],
+            'title' => ['required', 'string', 'min:5', 'max:255'],
+            'description' => ['required', 'max:1000'],
         ]);
-
-        return $this->module->store($request->all());
+        return $this->module->store($request->title, $request->description);
     }
 
     /**

@@ -1,5 +1,0 @@
-<div>
-    @foreach ()
-        
-    @endforeach
-</div>

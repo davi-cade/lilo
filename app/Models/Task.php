@@ -11,7 +11,7 @@ class Task extends Model
 
     protected $fillable = ['title', 'description'];
 
-    protected $hidden = ['id', 'difficulty_level', 'belonging_module_id', 'created_at', 'updated_at'];
+    protected $hidden = ['id', 'difficulty_level', 'belonging_module_slug', 'created_at', 'updated_at'];
 
     public function getId(){
         return $this->id;

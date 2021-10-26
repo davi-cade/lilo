@@ -11,8 +11,8 @@ class ModulePlayer extends Model
 {
     use HasFactory;
 
-    protected  $fillable = ['player_id', 'module_id', 'next_module_player_id', 'total_assimilated_card', 'total_available_card'];
-    protected  $hidden = ['accessible', 'concluded', 'module_id', 'player_id', 'created_at', 'updated_at'];
+    protected  $fillable = ['player_nickname', 'module_id', 'next_module_player_id', 'total_assimilated_card', 'total_available_card'];
+    protected  $hidden = ['accessible', 'concluded', 'module_id', 'player_nickname', 'created_at', 'updated_at'];
 
     public function getTotalAvailableCard(){
         return $this->total_available_card;
@@ -23,7 +23,7 @@ class ModulePlayer extends Model
     }
 
     public function player(){
-        return $this->belongsTo(Player::class, 'player_id');
+        return $this->belongsTo(Player::class, 'player_nickname');
     }
 
     public function module(){

@@ -36,12 +36,14 @@ class RegisteredAdminController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'surname' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'birth_date'=> ['date'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $admin = $this->ServiceOfAdmin->store($request->name, $request->email, $request->password);
+        $admin = $this->ServiceOfAdmin->store($request->name, $request->surname, $request->email, $request->birth_date, $request->password);
 
         $admin->attachRole(1);
 

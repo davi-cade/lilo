@@ -15,8 +15,9 @@ class CreateModulesTable extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
             $table->string('title');
+            $table->string('slug')->unique()->nullable();
+            $table->integer('position')->unique();
             $table->text('description');
             $table->timestamps();
         });

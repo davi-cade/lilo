@@ -17,7 +17,7 @@
         <h1>Score: {{$player['score']}}</h1>
 
         <a href="{{url('/perfil')}}">Perfil</a>
-        <a href="{{url('')}}">Grupo</a>
+        <a href="{{url('/group')}}">Grupo</a>
         
         <form method="POST" action="{{ route('logout') }}">
         @csrf

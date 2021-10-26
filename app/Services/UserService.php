@@ -20,8 +20,8 @@ class UserService
     
     //CRUD
 
-    public function store($name, $email, $password, $img){
-        $user  = $this->repository->store($name, $email, $password, $img);
+    public function store($name, $surname, $email, $birth_date, $password, $img){
+        $user  = $this->repository->store($name, $surname, $email, $birth_date, $password, $img);
         return $user;
     }
 

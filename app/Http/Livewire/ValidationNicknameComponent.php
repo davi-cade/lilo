@@ -11,12 +11,12 @@ class ValidationNicknameComponent extends Component
     public $nickname;
 
     protected $rules = [
-        'nickname' =>['required', 'string', 'min:3', 'max:255', 'unique:players'],
+        'nickname' =>['required', 'string', 'min:5', 'max:255', 'unique:players'],
     ];
 
     public function render()
     {
-        return view('livewire.validation-nickname');
+        return view('livewire.validation-nickname-component');
     }
 
     public function valid(){

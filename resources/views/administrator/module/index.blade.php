@@ -2,7 +2,7 @@
 
 @section('title', 'Módulos')
 
-@section('main')
+@section('content')
 
 <div>
     <a href="{{url('/module/create')}}">Cadastrar novo Módulo</a>

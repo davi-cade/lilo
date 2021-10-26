@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->integer('difficulty_level');
+            $table->enum('difficulty_level', [1, 2, 3]);
             $table->unsignedBigInteger('belonging_module_id');
             $table->timestamps();
         });

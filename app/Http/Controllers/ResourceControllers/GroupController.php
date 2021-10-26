@@ -3,10 +3,21 @@
 namespace App\Http\Controllers\ResourceControllers;
 
 use App\Http\Controllers\Controller;
+use App\Services\GroupService;
+use App\Services\PlayerService;
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
+    protected $groupService;
+    protected $playerService;
+
+    public function  __construct(GroupService $groupService, PlayerService $playerService){
+        $this->groupService = $groupService;
+        $this->playerService = $playerService;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,13 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('user.group.index');
+        $player = $this->playerService->getByField('user_id', Auth::user()->getId());
+
+        $myGroups = $player->myGroups;
+
+        $groups = $player->groupPlayer()->with('admin')->get();
+
+        return view('user.group.index', compact('myGroups', 'groups'));
     }
 
     /**

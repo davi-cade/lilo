@@ -39,8 +39,10 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'surname' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'birth_date'=> ['date'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'avatar' => ['sometimes', 'image', 'mimes:jpg,jpeg,png,svg,bmp', 'max:5000'],
         ]);
@@ -51,7 +53,7 @@ class RegisteredUserController extends Controller
             $img ='storage/'.($request->file('avatar')->store('img/'.$pastName.'/userProfile'));
         }
 
-        $user = $this->service->store($request->name, $request->email, $request->password, $img);
+        $user = $this->service->store($request->name, $request->surname, $request->email, $request->birth_date, $request->password, $img);
         $user->attachRole(2);
 
         event(new Registered($user));

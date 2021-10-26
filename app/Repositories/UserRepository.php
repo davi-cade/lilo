@@ -10,11 +10,13 @@ class UserRepository extends AbstractRepository
 {
     protected $model = User::class;
 
-    public function store($name, $email, $password, $img){
+    public function store($name, $surname, $email, $birth_date, $password, $img){
 
         $user = User::create([
             'name' => $name,
+            'surname' => $surname,
             'email' => $email,
+            'birth_date' => $birth_date,
             'password' => Hash::make($password),
             'avatar' => $img
         ]);
