@@ -23,7 +23,10 @@ class Module extends Model
     */
     public function getSlugOptions() : SlugOptions
     {
-        return SlugOptions::create()->generateSlugsFrom(['title', 'position'])->saveSlugsTo('slug')->usingSeparator('-');
+        return SlugOptions::create()
+        ->generateSlugsFrom(['title', 'position'])
+        ->saveSlugsTo('slug')
+        ->usingSeparator('-');
     }
 
     public function getId(){

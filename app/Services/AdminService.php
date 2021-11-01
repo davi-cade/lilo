@@ -1,20 +1,16 @@
 <?php
 
 namespace App\Services;
+
 use App\Repositories\AdminRepository;
+use App\Services\AbstractClasses\AbstractService;
 
-class AdminService
+class AdminService extends AbstractService
 {
-    protected $repository;
-
-    public function  __construct(AdminRepository $adminRepository){
-        $this->repository = $adminRepository;
-    }
+    protected $repository = AdminRepository::class;
     
-    //CRUD
-
-    public function store($name, $email, $password){
-        return $this->repository->store($name, $email, $password);
+    public function store($name, $surname, $email, $birth_date, $password){
+        return $this->repository->store($name, $surname, $email, $birth_date, $password);
     }
     
 }

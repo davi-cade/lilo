@@ -15,7 +15,7 @@ class Group extends Model
 
     protected  $fillable = ['name', 'description', 'admin_nickname', 'slug'];
 
-    protected $guarded = ['name', 'description'];
+    protected  $guarded = ['name', 'description', 'slug'];
 
     protected  $hidden = ['id', 'admin_nickname', 'created_at', 'updated_at'];
 
@@ -24,7 +24,10 @@ class Group extends Model
     */
     public function getSlugOptions() : SlugOptions
     {
-        return SlugOptions::create()->generateSlugsFrom('name')->saveSlugsTo('slug')->usingSeparator('-');
+        return SlugOptions::create()
+        ->generateSlugsFrom(['name', 'admin_nickname'])
+        ->saveSlugsTo('slug')
+        ->usingSeparator('-');
     }
 
     public function getId(){
@@ -51,7 +54,7 @@ class Group extends Model
         return $this->belongsTo(Player::class, 'admin_nickname');
     }
 
-    public function groupPlayer(){
+    public function participatingPlayers(){
         return $this->belongsToMany(Player::class, 'group_players', 'group_id', 'player_nickname');
     }
 }

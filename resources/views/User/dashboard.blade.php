@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>{{Auth::user()->name}}</h1>
+        <h1>{{Auth::user()->getName()}}</h1>
         <img src="{{asset(Auth::user()->avatar)}}" alt="user-avatar">
 
         <h1>Rubis: {{$player['rubys']}}</h1>
@@ -31,9 +31,13 @@
             <h2>{{$key->module->getTitle()}}</h2>
             <p>{{$key->module->getDescription()}}</p>
             <div>
-                <p>{{
-                    number_format((($key->getTotalAssimilatedCard()/$key->getTotalAvailableCard())*100),0,",",".");
-                }}%</p>
+                <p>
+                    @if($key->getTotalAvailableCard() === 0)
+                        0
+                    @else
+                        {{number_format((($key->getTotalAssimilatedCard()/$key->getTotalAvailableCard())*100),0,",",".")}}
+                    @endif
+                %</p>
             </div>
         @endforeach
         </div>

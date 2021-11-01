@@ -9,14 +9,15 @@ use Illuminate\Http\Request;
 
 class UserDashboardController extends Controller
 {
-    public function index(PlayerService $service){
+    protected $playerService;
 
-        $playerService = $service ;
+    public function  __construct(PlayerService $playerService){
+        $this->playerService= $playerService;
+    }
 
+    public function index(){
         $player = $playerService->getFirstByField('user_id', Auth::user()->getId()); 
-       
         $instanceModule =  $playerService->getByField('user_id', Auth::user()->getId())->modulePlayer()->with('module')->get();
-
         return view('user.dashboard', compact('player', 'instanceModule'));
     }
 }

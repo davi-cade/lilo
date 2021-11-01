@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'surname' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'birth_date'=> ['date'],
+            'birth_date'=> ['required', 'date'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'avatar' => ['sometimes', 'image', 'mimes:jpg,jpeg,png,svg,bmp', 'max:5000'],
         ]);

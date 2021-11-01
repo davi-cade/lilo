@@ -16,7 +16,7 @@ class CreatePlayersTable extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->string('nickname')->unique();
-            $table->foreignId('user_id')->constrained()->unique()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->unique()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('rubys')->default(0);
             $table->integer('chances')->default(0);
             $table->integer('coins')->default(0);

@@ -1,39 +1,23 @@
 <?php
 
 namespace App\Services;
+
 use App\Repositories\ModuleRepository;
-use App\Services\LaunchService;
+use App\Services\ExtraServices\ModulesPublisherExtraService;
+use App\Services\AbstractClasses\AbstractService;
 
-class ModuleService
+class ModuleService extends AbstractService
 {
-    protected $repository;
-    protected $launch;
-
-    public function  __construct(ModuleRepository $moduleRepository, LaunchService $launchService){
-        $this->repository = $moduleRepository;
-        $this->launch = $launchService;
-    }
-
-    //ORM Function
-
-    public function getAll(){
-        return $this->repository->getAll();
-    }
-    
-    public function getBySlug($slug){
-        return $this->repository->getBySlug($slug)->toArray();
-    }
-    
-    public function count(){
-        return $this->repository->count();
-    }
-
-
-    //CRUD
+    protected $repository = ModuleRepository::class;
 
     public function store($title, $description){
+
+        $publisher = new ModulesPublisherExtraService;
+
         $module = $this->repository->store($title, $description);
-        $this->launch->modulePublisher($module->getId());
+
+        $publisher->publish($module->getId());
+        
         return redirect('/module');
     }
 

@@ -1,24 +1,13 @@
 <?php
 
 namespace App\Services;
-use App\Services\LaunchService;
+
 use App\Repositories\UserRepository;
+use App\Services\AbstractClasses\AbstractService;
 
-class UserService
+class UserService extends AbstractService
 {
-    protected $repository;
-  
-    public function  __construct(UserRepository $userRepository){
-        $this->repository = $userRepository;
-    }
-
-    //ORM Function
-
-    public function getAll(){
-        return $this->repository->getAll();
-    }
-    
-    //CRUD
+    protected $repository = UserRepository::class;
 
     public function store($name, $surname, $email, $birth_date, $password, $img){
         $user  = $this->repository->store($name, $surname, $email, $birth_date, $password, $img);

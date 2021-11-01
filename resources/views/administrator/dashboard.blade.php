@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Olá, {{Auth::user()->name}}</h1>
+        <h1>Olá, {{Auth::user()->getName()}}</h1>
         <form method="POST" action="{{ route('logout') }}">
         @csrf
         <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>

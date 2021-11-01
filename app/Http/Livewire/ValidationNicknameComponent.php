@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Livewire;
+
 use Illuminate\Support\Facades\Auth;
-use App\Services\LaunchService;
+use App\Services\ExtraServices\LauncherExtraService;
 
 use Livewire\Component;
 
@@ -23,13 +24,13 @@ class ValidationNicknameComponent extends Component
         $this->validate();
     }
 
-    public function submit(LaunchService $service)
+    public function submit(LauncherExtraService $service)
     {
         $this->validate();
 
-        $launchService = $service;
+        $launchExtraService = $service;
 
-        $launchService->launch($this->nickname, Auth::user()->getId());
+        $launchExtraService->launch($this->nickname, Auth::user()->getId());
 
         return redirect('/redirect');
     }

@@ -17,6 +17,10 @@ class Player extends Model
         return $this->id;
     }
 
+    public function getNickname(){
+        return $this->nickname;
+    }
+
     public function registe(){
         return $this->belongsTo(User::class, 'id', 'user_id');
     }

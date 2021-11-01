@@ -16,8 +16,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable = ['name', 'surname','email', 'birth_date', 'password', 'avatar'];
 
-    protected $guarded = ['id'];
-
     protected $hidden = ['id','password','remember_token'];
 
     protected $casts = ['email_verified_at' => 'datetime'];
@@ -25,4 +23,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getId(){
         return $this->id;
     }
+
+    public function getName(){
+        return $this->name." ".$this->surname;
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class, 'user_id');
+    }
+
 }

@@ -9,4 +9,5 @@ class TaskRepository extends AbstractRepository
 {
     protected $model = Task::class;
 
+    
 }
