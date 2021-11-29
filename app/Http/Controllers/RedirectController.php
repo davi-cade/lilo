@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\PlayerRepository;
 use Illuminate\Support\Facades\Auth;
 
 class RedirectController extends Controller
@@ -19,8 +18,8 @@ class RedirectController extends Controller
        if(Auth::user()->hasRole('user')){
                     return redirect('/home');
 
-        }elseif(Auth::user()->hasRole('administrator')){
-                return redirect('/dashboard');
+        }elseif(Auth::user()->hasRole('administrator') or Auth::user()->hasRole('superadministrator')){
+                return redirect('/admin/home');
         }
         
         Auth::logout();

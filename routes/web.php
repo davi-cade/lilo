@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use Illuminate\Foundation\Auth;
 
 Route::view('/', 'landing-page');
@@ -9,25 +10,35 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     
     Route::get('/redirect', App\Http\Controllers\RedirectController::class)->name('redirect');
         
-    Route::group(['middleware' => ['role:administrator']], function() {
+    Route::group(['middleware' => ['role:administrator|superadministrator'], 'prefix' => 'admin'], function() {
         
-        Route::get('/dashboard', 'App\Http\Controllers\Administrator\AdminDashboardController@index');
+        Route::get('/home', 'App\Http\Controllers\Administrator\AdminDashboardController@index');
+        Route::get('/profile', 'App\Http\Controllers\administrator\AdminProfileController@edit');
 
-        Route::get('/dashboard/registro', 'App\Http\Controllers\Auth\RegisteredAdminController@create');
-        Route::post('/dashboard/registro', 'App\Http\Controllers\Auth\RegisteredAdminController@store');
+        //Route::get('/user', App\Http\Livewire\ShowUsersComponent::class);
         
         Route::resource('module', App\Http\Controllers\ResourceControllers\ModuleController::class);
         Route::post('/module/publish', 'App\Http\Controllers\ResourceControllers\ModuleController@store');
 
+        Route::resource('missions', App\Http\Controllers\ResourceControllers\MissionController::class);
+        Route::post('/missions/publish', 'App\Http\Controllers\ResourceControllers\MissionController@store');
 
+        //Route::get('/chat',);
+
+        Route::group(['middleware' => ['role:superadministrator']], function() {
+            Route::get('/register', 'App\Http\Controllers\Auth\RegisteredAdminController@create');
+            Route::post('/register', 'App\Http\Controllers\Auth\RegisteredAdminController@store');
+            Route::get('/report', 'App\Http\Controllers\ResourceControllers\ReportController@index');
+        });
     });
-
     
     Route::view('/nickname', 'RegisterNickname.nickname');
 
     Route::group(['middleware' => ['role:user', 'playerExists']], function() {
         
         Route::get('/home', 'App\Http\Controllers\User\UserDashboardController@index');
+        Route::get('/profile', 'App\Http\Controllers\user\UserProfileController@edit');
+
         Route::get('/module/{$slug}', 'App\Http\Controllers\ResourceControllers\ModuleController@show');
         Route::get('/missions', 'App\Http\Controllers\ResourceControllers\MissionController@index');
         

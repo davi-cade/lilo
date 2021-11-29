@@ -15,6 +15,7 @@ class CreateCardPlayersTable extends Migration
     {
         Schema::create('card_players', function (Blueprint $table) {
             $table->id();
+            $table->enum('assimilation', ['0', '1', '2', '3']);
             $table->timestamps();
         });
     }

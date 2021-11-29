@@ -9,14 +9,30 @@
 <body>
     <header>
         <h1>Olá, {{Auth::user()->getName()}}</h1>
+        <img src="{{asset(Auth::user()->directory->url_avatar)}}" alt="admin-avatar">
         <form method="POST" action="{{ route('logout') }}">
         @csrf
         <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
     </form>
     </header>
     <main>
-        <a href="{{url('/dashboard/registro')}}">Cadastrar novo Administardor</a>
-        <a href="{{url('/module')}}">Módulos</a>                  
+        <nav>
+            <a href="{{url('/admin/profile')}}">Perfil</a>
+            @role('superadministrator')
+                <a href="{{url('/admin/register')}}">Administradores</a>
+            @endrole
+            <a href="{{url('/admin/users')}}">Usuários</a>
+            <a href="{{url('/admin/missions')}}">Missões</a>  
+            <a href="{{url('/admin/module')}}">Módulos</a>
+            <a href="{{url('/admin/chat')}}">Chat</a> 
+        </nav>
+        <div>
+            <article>Número de Player: {{$totalPlayer}}</article>
+            <article>Número de Módulos: {{$totalModules}}</article>
+            @role('superadministrator')
+                <article>Número de ADM: {{$totalAdmins}}</article>
+            @endrole
+        </div>
     </main>
 </body>
 </html>

@@ -4,7 +4,7 @@ namespace App\Services\ExtraServices;
 
 use App\Services\ModuleService;
 use App\Services\PlayerService;
-use app\Services\Pivots\ModulePlayerService;
+use App\Services\Pivots\ModulePlayerService;
 
 class LauncherExtraService
 {

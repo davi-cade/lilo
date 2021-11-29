@@ -48,13 +48,14 @@ class RegisteredUserController extends Controller
         ]);
 
         $img = '/img/userProfile/default-avatar.svg';
+        $directory = md5($request->email.$request->birth_date.strtotime("now"));
+
         if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
-            $pastName = md5($request->email.strtotime("now"));
-            $img ='storage/'.($request->file('avatar')->store('img/'.$pastName.'/userProfile'));
+            $img ='/'.'storage/'.($request->file('avatar')->store('img/'.$directory.'/userProfile'));
         }
 
-        $user = $this->service->store($request->name, $request->surname, $request->email, $request->birth_date, $request->password, $img);
-        $user->attachRole(2);
+        $user = $this->service->store($request->name, $request->surname, $request->email, $request->birth_date, $request->password, $img, $directory);
+        $user->attachRole(3);
 
         event(new Registered($user));
         Auth::login($user);

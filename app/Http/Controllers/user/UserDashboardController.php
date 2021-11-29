@@ -16,8 +16,8 @@ class UserDashboardController extends Controller
     }
 
     public function index(){
-        $player = $playerService->getFirstByField('user_id', Auth::user()->getId()); 
-        $instanceModule =  $playerService->getByField('user_id', Auth::user()->getId())->modulePlayer()->with('module')->get();
+        $player = $this->playerService->getFirstByField('user_id', Auth::user()->getId()); 
+        $instanceModule =  $this->playerService->getByField('user_id', Auth::user()->getId())->modulePlayer()->with('module')->get();
         return view('user.dashboard', compact('player', 'instanceModule'));
     }
 }

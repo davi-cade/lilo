@@ -10,7 +10,9 @@ class Player extends Model
     use HasFactory;
 
     protected $fillable = ['nickname', 'user_id'];
+
     protected $guarded = ['rubys', 'chances', 'coins', 'score'];
+    
     protected $hidden = ['id', 'user_id', 'created_at', 'updated_at'];
 
     public function getId(){
@@ -30,7 +32,7 @@ class Player extends Model
     }
 
     public function myGroups(){
-        return $this->hasMany(Group::class, 'admin_nickname');
+        return $this->hasMany(Group::class, 'admin_nickname', 'nickname');
     }
 
     public function groupPlayer(){

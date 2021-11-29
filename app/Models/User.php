@@ -14,7 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = ['name', 'surname','email', 'birth_date', 'password', 'avatar'];
+    protected $fillable = ['name', 'surname','email', 'birth_date', 'password'];
 
     protected $hidden = ['id','password','remember_token'];
 
@@ -28,8 +28,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->name." ".$this->surname;
     }
 
-    public function profile(){
-        return $this->hasOne(Profile::class, 'user_id');
+    public function getEmail(){
+        return $this->email;
+    }
+
+    public function getBirthDate(){
+        return $this->birth_date;
+    }
+
+    public function directory(){
+        return $this->morphOne(Directory::class, 'directoryable');
     }
 
 }

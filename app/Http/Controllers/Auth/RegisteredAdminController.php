@@ -22,7 +22,7 @@ class RegisteredAdminController extends Controller
      */
     public function create()
     {
-        return view('administrator.admin-register');
+        return view('administrator.superadministrator.admin-register');
     }
 
     /**
@@ -43,12 +43,15 @@ class RegisteredAdminController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $admin = $this->ServiceOfAdmin->store($request->name, $request->surname, $request->email, $request->birth_date, $request->password);
+        $img = '/img/userProfile/default-avatar.svg';
+        $directory = md5($request->email.$request->birth_date.strtotime("now"));
 
-        $admin->attachRole(1);
+        $admin = $this->ServiceOfAdmin->store($request->name, $request->surname, $request->email, $request->birth_date, $request->password, $img, $directory);
+
+        $admin->attachRole(2);
 
         event(new Registered($admin));
         
-        return redirect()->back();
+        return redirect('/admin/register');
     }
 }

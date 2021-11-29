@@ -1,16 +1,17 @@
 <div>
     <form wire:submit.prevent="submit">
-        <input type="text" wire:model="title">
+        <label for="title">Titulo</label>
+        <input type="text" id="title" wire:model="title">
         @error('title') <span class="error">{{ $message }}</span> @enderror
 
-        <input type="text" wire:model="description">
+        <label for="title">Descrição</label>
+        <input type="text" id="description" wire:model="description">
         @error('description') <span class="error">{{ $message }}</span> @enderror
 
-        
         <button type="submit">Concluir</button>
     </form>
     <div>
-        <input type="text" name="player-search" id="player-search" wire:model="nickname">
+        <input type="text" name="player-search" id="player-search" wire:model="nickname" placeholder="Nickname">
 
         @foreach($players as $key)
         <div>
@@ -18,7 +19,7 @@
                 {{$key->nickname}}
                 {{$key->score}}
             </div>
-            <button wire:click="add">Adcionar</button>
+            <button wire:click="addPalyer({{$key->nickname}})">Adcionar</button>
         </div>
         @endforeach
     </div>

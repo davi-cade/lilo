@@ -26,11 +26,8 @@ class GroupController extends Controller
     public function index()
     {
         $player = $this->playerService->getByField('user_id', Auth::user()->getId());
-
         $myGroups = $player->myGroups;
-
-        $groups = $player->groupPlayer()->with('admin')->get();
-
+        $groups = $player->groupPlayer()->with('admin');
         return view('user.group.index', compact('myGroups', 'groups'));
     }
 
@@ -58,12 +55,14 @@ class GroupController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $group = $this->groupService->getBySlug($slug);
+        $participatingPlayers = $group->participatingPlayers();
+        return view('user.group.show', compact('group', 'participatingPlayers'));
     }
 
     /**

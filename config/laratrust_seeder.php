@@ -15,6 +15,7 @@ return [
 
         'superadministrator' => [
             'users' => 'c,r,u,d',
+            'report' => 'c,r,u,d',
         ],
 
         'administrator' => [

@@ -19,9 +19,5 @@
         <label for="description">Descrição</label>
         <input id="description" type="text" name="description" required>
         @error('description') <span class="error">{{ $message }}</span> @enderror
-        
-        <input type="submit" value="Publicar">
-
-    </form>
 
 @endsection

@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers\ResourceControllers;
 
+use App\Services\MissionService;
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class MissionController extends Controller
 {
+    protected $MissionService;
+
+    public function  __construct(MissionService $MissionService){
+        $this->MissionService = $MissionService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class MissionController extends Controller
      */
     public function index()
     {
-        //
+        $mission = $this->MissionService->getAll();
+        return view('administrator.mission.index', compact('mission'));
     }
 
     /**

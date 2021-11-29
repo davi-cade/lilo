@@ -10,7 +10,7 @@ class UserRepository extends AbstractRepository
 {
     protected $model = User::class;
 
-    public function store($name, $surname, $email, $birth_date, $password, $img){
+    public function store($name, $surname, $email, $birth_date, $password){
 
         $user = User::create([
             'name' => $name,
@@ -18,10 +18,12 @@ class UserRepository extends AbstractRepository
             'email' => $email,
             'birth_date' => $birth_date,
             'password' => Hash::make($password),
-            'avatar' => $img
         ]);
     
         return $user;
     }
 
+    public function getAll(){
+        return $this->model::whereRoleIs('user')->all();
+    }
 }

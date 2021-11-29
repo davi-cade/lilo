@@ -1,16 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\ResourceControllers;
+namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
-class PerfileController extends Controller
+use App\Services\UserService;
+use App\Services\PlayerService;
+
+
+class UserProfileController extends Controller
 {
-    protected $chest;
+    protected $UserService;
+    protected $PlayerService;
     
-   public function __construct(ChestRepository $chestModel){
-        $this->chest = $chestModel;
+   public function __construct(UserService $UserService, PlayerService $PlayerService){
+        $this->UserService = $UserService;
+        $this->PlayerService = $PlayerService;
     }
 
     /**
@@ -21,7 +28,9 @@ class PerfileController extends Controller
      */
     public function edit()
     {
-        return view('edit-perfil');
+        $registe = $this->UserService->getRegisteById(Auth::user()->getId());
+        $player = $this->playerService->getFirstByField('user_id', Auth::user()->getId()); 
+        return view('User.profile', compact('registe', 'palyer'));
     }
 
     /**

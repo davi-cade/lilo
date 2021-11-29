@@ -11,13 +11,15 @@ class PlayerRepository extends AbstractRepository
     protected $model = Player::class;
 
     public function store($nickname, $id){
-
-        $Player = Player::create([
+        $player = Player::create([
             'nickname' => $nickname,
             'user_id' => $id
         ]);
-    
-        return $Player;
+        return $player;
+    }
+
+    public function allRegiste(){
+        return $this->model::registe();
     }
 
 }

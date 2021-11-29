@@ -55,6 +55,6 @@ class Group extends Model
     }
 
     public function participatingPlayers(){
-        return $this->belongsToMany(Player::class, 'group_players', 'group_id', 'player_nickname');
+        return $this->belongsToMany(Player::class, 'group_players', 'group_id', 'player_nickname')->orderBy('score', 'DESC');
     }
 }

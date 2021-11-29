@@ -5,6 +5,9 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+use App\Services\ExtraServices\GroupReset;
+
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -25,6 +28,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+       /* $schedule->call(function () {
+
+            $reset = new GroupReset();
+            $reset->reset();
+            
+        })->everyMinute();*/
     }
 
     /**
