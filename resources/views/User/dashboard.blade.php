@@ -18,8 +18,6 @@
 
                 <div class="row one">
 
-                   
-
                     <div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-4">
                         <img class="logo" src="/img/lilo.svg" alt="logo">
                     </div>
@@ -57,7 +55,7 @@
                     <div class="col-1">
                         <div class="menu_profile">
                             <img class="menu_avatar--frame" src="/img/frame.svg" alt="Avatar Frame">   
-                            <img class="menu_avatar" src="/img/profile.jpeg" alt="Avatar Picture">
+                            <img class="menu_avatar" src="{{asset(Auth::user()->directory->url_avatar)}}" alt="Avatar Picture">
                           </div>
                     </div>
 
@@ -68,10 +66,15 @@
                             <div class="line3"></div>
                             </div>
                         <ul class="nav-list">
-                            <li><a href="#">Início</a></li>
-                            <li><a href="#">Ajustes</a></li>
+                            <li><a href="{{url('/profile')}}">Perfil</a></li>
+                            <li><a href="{{url('/group')}}">Grupos</a></li>
                             <li><a href="#">Sobre</a></li>
-                            <li><a href="#">Sair</a></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Sair</a>
+                                </form>
+                            </li>
                         </ul>
                     </div>
 

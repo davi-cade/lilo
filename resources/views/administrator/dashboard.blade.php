@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Administradores</title>
 </head>
 <body>
     <header>
@@ -20,6 +20,7 @@
             <a href="{{url('/admin/profile')}}">Perfil</a>
             @role('superadministrator')
                 <a href="{{url('/admin/register')}}">Administradores</a>
+                <a href="{{url('/admin/reports')}}">Mini Relatórios</a>
             @endrole
             <a href="{{url('/admin/users')}}">Usuários</a>
             <a href="{{url('/admin/missions')}}">Missões</a>  

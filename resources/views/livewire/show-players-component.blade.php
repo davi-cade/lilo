@@ -10,18 +10,27 @@
 
         <button type="submit">Concluir</button>
     </form>
-    <div>
+    <div> 
+        @foreach($players as $key)
+            <div>
+                <div>
+                    {{$key['nickname']}}
+                    {{$key['score']}}
+                </div>
+            </div>
+        @endforeach
         <input type="text" name="player-search" id="player-search" wire:model="nickname" placeholder="Nickname">
 
-        @foreach($players as $key)
+        @foreach($allPlayers as $key)
         <div>
             <div>
                 {{$key->nickname}}
                 {{$key->score}}
             </div>
-            <button wire:click="addPalyer({{$key->nickname}})">Adcionar</button>
+            <button wire:click="addPalyer({{$key}})">Adcionar</button>
         </div>
         @endforeach
+       
     </div>
 </div>
 

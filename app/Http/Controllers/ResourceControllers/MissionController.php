@@ -22,17 +22,6 @@ class MissionController extends Controller
      */
     public function index()
     {
-        $mission = $this->MissionService->getAll();
-        return view('administrator.mission.index', compact('mission'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
         return view('administrator.mission.create');
     }
 
@@ -44,7 +33,22 @@ class MissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'string', 'min:5', 'max:255'],
+            'description' => ['required', 'max:1000'],
+            'landmark' => ['required', 'numeric'],
+            'reward' => ['required', 'numeric', 'between:1,5000'],
+            'type_landmark' => ['required', 'in:1,2,3,4'],
+            'type_reward' => ['required', 'in:1,2,3,4']
+        ]);
+        return $this->MissionService->store(
+            $request->title,
+            $request->description,
+            $request->landmark,
+            $request->reward,
+            $request->type_landmark,
+            $request->type_reward
+        );
     }
 
     /**

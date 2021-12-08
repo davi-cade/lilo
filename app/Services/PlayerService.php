@@ -13,4 +13,8 @@ class PlayerService extends AbstractService
         return $this->repository->store($nickname, $id);
     }
 
+    public function allRegiste(){
+        return $this->repository->allRegiste();
+    }
+
 }

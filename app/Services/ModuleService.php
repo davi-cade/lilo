@@ -18,16 +18,16 @@ class ModuleService extends AbstractService
 
         $publisher->publish($module->getId());
         
-        return redirect('/module');
+        return redirect('/admin/module');
     }
 
     public function destroy($slug){
         try{
             $this->repository->destroy($slug);
         }catch (Exception $e) {
-            return redirect('/module')->with('status', 'Módulo não encontrado');
+            return redirect('/admin/module')->with('status', 'Módulo não encontrado');
         }
-        return redirect('/module')->with('status', 'Módulo deletado com sucesso');
+        return redirect('/admin/module')->with('status', 'Módulo deletado com sucesso');
     }
     
 }

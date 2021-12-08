@@ -24,7 +24,7 @@ class Player extends Model
     }
 
     public function registe(){
-        return $this->belongsTo(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function modulePlayer(){

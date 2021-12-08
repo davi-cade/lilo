@@ -31,7 +31,7 @@ class AdminRepository extends AbstractRepository
     public function getAll(){
         return $this->model::whereRoleIs('administrator')
         ->orWhereRoleIs('superadministrator')
-        ->where('id', '<>', Auth::user()->getId())->all();
+        ->where('id', '<>', Auth::user()->getId())->get();
     }
 
     public function count(){
