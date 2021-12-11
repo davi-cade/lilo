@@ -20,12 +20,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
-    <link rel="stylesheet" href="css/styless.css" />
+    <link rel="stylesheet" href="css/Atividade/mdb.min.css" />
+    <link rel="stylesheet" href="css/Atividade/styles.css" />
 
 
 
-    <link rel="stylesheet" href="/css/nivel.css" />
+    <link rel="stylesheet" href="/css/Atividade/nivel.css" />
 @endsection
 
 

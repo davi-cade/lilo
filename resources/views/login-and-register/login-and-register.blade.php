@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('head')
+<link rel="stylesheet" href="/css/Login/index.css" />
+@endsection
+
 @section('title', 'Login')
 
 @section('content')

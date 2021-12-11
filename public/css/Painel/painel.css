@@ -1,0 +1,131 @@
+.box_one{
+    background: #FFFFFF;
+    border: 3px solid #E5E5E5;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 0px #E5E5E5;
+    border-radius: 20px;
+    height: 65vh;
+    margin-top: 10%; 
+    
+  }
+
+  .box_two{
+    background: #FFFFFF;
+    border: 3px solid #E5E5E5;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 0px #E5E5E5;
+    border-radius: 20px; 
+    height: 65vh;
+    margin-top: 10%;
+    margin-block-end: 10%;
+  }
+
+  .bi{
+    position: relative;
+    top:50%;
+    left:90%;
+    transform: translate(-60%, -120%);
+
+  }
+
+  /* header{
+    height: 15vh;
+  } */
+
+
+  @media (max-width: 575.98px) {
+    .box_one{
+     
+    }
+
+    .box_two{
+      height: 75vh;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* onda */
+
+
+
+
+  .onda,
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+  }
+  
+  section {
+    background: #66c3d0;
+  }
+  
+  .onda {
+  
+   
+  }
+  
+  .onda h1 {
+    border: 5px solid white;
+    padding: 10px 50px;
+    margin: 50px;
+    z-index: 2;
+  }
+  
+  .waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -100;
+  }
+  
+  .wave-1 {
+    animation: moveWave1 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes moveWave1 {
+    from {
+      transform: translateX(-2000px);
+    }
+  }
+  
+  .wave-2 {
+    animation: moveWave2 3s 1.2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes moveWave2 {
+    from {
+      transform: translateX(-1800px);
+    }
+  }
+  
+  .wave-3 {
+    animation: moveWave3 3s 0.7s ease-in-out infinite alternate;
+  }
+  
+  @keyframes moveWave3 {
+    from {
+      transform: translateX(-1600px);
+    }
+  }
