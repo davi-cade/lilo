@@ -15,6 +15,13 @@ class CreateMissionsTable extends Migration
     {
         Schema::create('missions', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('description');
+            $table->integer('landmark')->default(0);
+            $table->integer('reward')->default(0);
+            $table->string('type_landmark');
+            $table->string('type_reward');
             $table->timestamps();
         });
     }

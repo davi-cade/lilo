@@ -19,7 +19,7 @@ class PlayerRepository extends AbstractRepository
     }
 
     public function allRegiste(){
-        return $this->model::registe();
+        return $this->model::with('registe')->orderBy('score', 'desc')->get();
     }
 
 }

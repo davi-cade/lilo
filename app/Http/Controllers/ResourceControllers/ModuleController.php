@@ -60,7 +60,7 @@ class ModuleController extends Controller
      */
     public function show($slug)
     {
-        $module = $this->module->getBySlug($slug);
+        $module = $this->module->getByField('slug', $slug);
         $tasks = $module->tasks;
         return view('administrator.module.show', compact('module', 'tasks'));
     }

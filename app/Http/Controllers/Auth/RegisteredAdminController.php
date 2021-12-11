@@ -39,7 +39,7 @@ class RegisteredAdminController extends Controller
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'surname' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'birth_date'=> ['required', 'date'],
+            'birth_date'=> ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 

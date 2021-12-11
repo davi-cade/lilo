@@ -15,7 +15,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::get('/home', 'App\Http\Controllers\Administrator\AdminDashboardController@index');
         Route::get('/profile', 'App\Http\Controllers\administrator\AdminProfileController@edit');
 
-        //Route::get('/user', App\Http\Livewire\ShowUsersComponent::class);
+        Route::view('/users', 'administrator.users.index');
         
         Route::resource('module', App\Http\Controllers\ResourceControllers\ModuleController::class);
         Route::post('/module/publish', 'App\Http\Controllers\ResourceControllers\ModuleController@store');
@@ -23,12 +23,12 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::resource('missions', App\Http\Controllers\ResourceControllers\MissionController::class);
         Route::post('/missions/publish', 'App\Http\Controllers\ResourceControllers\MissionController@store');
 
-        //Route::get('/chat',);
+        Route::view('/chat', 'administrator.chat.index');
 
         Route::group(['middleware' => ['role:superadministrator']], function() {
             Route::get('/register', 'App\Http\Controllers\Auth\RegisteredAdminController@create');
             Route::post('/register', 'App\Http\Controllers\Auth\RegisteredAdminController@store');
-            Route::get('/report', 'App\Http\Controllers\ResourceControllers\ReportController@index');
+            Route::get('/reports', 'App\Http\Controllers\administrator\ReportController@index');
         });
     });
     
@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     });
           
 });
+
 
 require __DIR__.'/auth.php';
 

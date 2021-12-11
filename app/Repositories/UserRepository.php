@@ -23,6 +23,12 @@ class UserRepository extends AbstractRepository
         return $user;
     }
 
+    public function destroy($id){
+        $user = $this->getById($id);
+        $user->directory()->delete();
+        return $user->delete();
+    }
+
     public function getAll(){
         return $this->model::whereRoleIs('user')->all();
     }

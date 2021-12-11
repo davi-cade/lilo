@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Player;
+use App\Services\PlayerService;
 use Illuminate\Support\Facades\Auth; 
 
 class ShowPlayersComponent extends Component
@@ -11,14 +11,21 @@ class ShowPlayersComponent extends Component
     public $nickname;
     public $title;
     public $description;
-    public $participants=[];
+    public $allPlayers;
+    public $participants;
 
-    public function render()
-    {
+    public function mount(){
+        $this->participants = collect();
+    }
+
+    public function render(){
         return view('livewire.show-players-component', 
-        ['players'=>Player::when($this->nickname, function($query, $nickname){
-            return $query->where('nickname', 'like', "%$nickname%")->orderBy('nickname', 'desc')->get();
-        })]);
+        [
+            'allPlayers' => Player::when($this->nickname, function($query, $nickname){
+                return $query->where('nickname', 'like', "%$nickname%")->orderBy('nickname', 'desc')->get();
+            }), 
+            'players' => $this->participants->all()
+        ]);
     }
 
     protected $rules = [
@@ -26,9 +33,8 @@ class ShowPlayersComponent extends Component
         'description' =>['required', 'string']
     ];
 
-    public function addPalyer($nickname){
-        $participants[] = $nickname;
-        dd($participants[0]);
+    public function addPalyer($name){
+        $this->participants->push($name);
     }
 
     public function submit(){

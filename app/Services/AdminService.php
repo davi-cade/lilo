@@ -3,6 +3,9 @@
 namespace App\Services;
 
 use App\Repositories\AdminRepository;
+use App\Services\ReportService;
+use Illuminate\Support\Facades\Auth;
+
 use App\Services\AbstractClasses\AbstractService;
 
 class AdminService extends AbstractService
@@ -21,6 +24,9 @@ class AdminService extends AbstractService
         }catch (Exception $e) {
             return 'NÃO FOI POSSIVÉL ENCONTRAR ESSE ADMINISTRADOR.';
         }
+        $ReportService = new ReportService();
+        $ReportService->store('Exclusão', $id, 'Admin', Auth::user()->getId());
+
         $this->repository->destroy($id);
         return 'O ADMINISTRADOR FOI DELETADO COM SUCESSO.';
     }

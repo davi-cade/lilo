@@ -4,8 +4,9 @@
 
 @section('content')
 
+<a href="{{url('/admin/home')}}">Voltar</a>
 <div>
-    <a href="{{url('/module/create')}}">Cadastrar novo Módulo</a>
+    <a href="{{url('/admin/module/create')}}">Cadastrar novo Módulo</a>
 </div>
 
 <div>
@@ -15,7 +16,7 @@
             <h3>{{$module->title}}</h3>
             <p>{{$module->description}}</p>
             <p>{{$module->getCreationDate()}}</p>
-            <a href="/module/{{$module->getSlug()}}">ver</a>
+            <a href="/admin/module/{{$module->getSlug()}}">ver</a>
         </div>
     @endforeach
 </div>
