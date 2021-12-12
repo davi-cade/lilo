@@ -41,16 +41,6 @@ class GroupController extends Controller
         return view('user.group.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -61,8 +51,9 @@ class GroupController extends Controller
     public function show($slug)
     {
         $group = $this->groupService->getBySlug($slug);
-        $participatingPlayers = $group->participatingPlayers();
-        return view('user.group.show', compact('group', 'participatingPlayers'));
+        $admin = $group->admin;
+        $participatingPlayers = $group->getParticipatingPlayers;
+        return view('user.group.show', compact('group', 'participatingPlayers', 'admin'));
     }
 
     /**

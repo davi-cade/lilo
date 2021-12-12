@@ -9,7 +9,7 @@
 </head>
 <body>
     <h3>Crie seu grupo</h3>
-    @livewire('App\Http\Livewire\ShowPlayersComponent')
+    @livewire('App\Http\Livewire\CreateGroupsComponent')
     @livewireScripts
 </body>
 </html>

@@ -22,9 +22,12 @@ abstract class AbstractService{
         return $this->repository->getById($id);
     }
     
+    public function getBySlugOnArray($slug){
+        return $this->repository->getBySlug($slug)->toArray();
+    }
 
     public function getBySlug($slug){
-        return $this->repository->getBySlug($slug)->toArray();
+        return $this->repository->getBySlug($slug);
     }
 
     public function getByField($field, $value){

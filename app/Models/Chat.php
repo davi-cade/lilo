@@ -9,16 +9,16 @@ class Chat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['group_id','title'];
+    protected $fillable = ['group_id','type'];
     
-    protected $hidden = ['id','group_id', 'title', 'created_at', 'updated_at'];
+    protected $hidden = ['id','group_id', 'type', 'created_at', 'updated_at'];
 
     public function getId(){
         return $this->id;
     }
 
-    public function title(){
-        return $this->title;
+    public function getType(){
+        return $this->type;
     }
 
     public function group(){

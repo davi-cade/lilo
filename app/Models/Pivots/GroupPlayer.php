@@ -3,7 +3,9 @@
 namespace App\Models\Pivots;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+use App\Models\Player;
 
 class GroupPlayer extends Model
 {

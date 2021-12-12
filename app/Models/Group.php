@@ -51,10 +51,10 @@ class Group extends Model
     }
 
     public function admin(){
-        return $this->belongsTo(Player::class, 'admin_nickname');
+        return $this->belongsTo(Player::class);
     }
 
-    public function participatingPlayers(){
+    public function getParticipatingPlayers(){
         return $this->belongsToMany(Player::class, 'group_players', 'group_id', 'player_nickname')->orderBy('score', 'DESC');
     }
 }
