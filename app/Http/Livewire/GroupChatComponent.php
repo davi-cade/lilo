@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Services\ChatService;
 
-class ChatAdminComponent extends Component
+class GroupChatComponent extends Component
 {
     public $ChatService;
 
@@ -15,9 +15,7 @@ class ChatAdminComponent extends Component
 
     public function render()
     {
-        $chat = $this->ChatService->getByField('type', 'Administrator');
-        $messages = $chat->messages();
-        return view('livewire.chat-admin-component', compact('messages'));
+        return view('livewire.group-chat-component');
     }
 
     

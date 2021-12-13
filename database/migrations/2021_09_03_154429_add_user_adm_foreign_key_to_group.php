@@ -14,7 +14,7 @@ class AddUserAdmForeignKeyToGroup extends Migration
     public function up()
     {
         Schema::table('groups', function (Blueprint $table) {
-            $table->foreign('admin_nickname')->references('nickname')->on('players')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('admin_id')->references('id')->on('players')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -26,7 +26,7 @@ class AddUserAdmForeignKeyToGroup extends Migration
     public function down()
     {
         Schema::table('groups', function (Blueprint $table) {
-            $table->dropForeign(['admin_nickname']);
+            $table->dropForeign(['admin_id']);
         });
     }
 }

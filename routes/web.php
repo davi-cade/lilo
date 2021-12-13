@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::resource('missions', App\Http\Controllers\ResourceControllers\MissionController::class);
         Route::post('/missions/publish', 'App\Http\Controllers\ResourceControllers\MissionController@store');
 
-        Route::view('/chat', 'administrator.chat.index');
+        Route::view('/chat/{slug}', 'administrator.chat.index');
 
         Route::group(['middleware' => ['role:superadministrator']], function() {
             Route::get('/register', 'App\Http\Controllers\Auth\RegisteredAdminController@create');

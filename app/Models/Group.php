@@ -13,11 +13,11 @@ class Group extends Model
 
     use HasSlug;
 
-    protected  $fillable = ['name', 'description', 'admin_nickname', 'slug'];
+    protected  $fillable = ['name', 'description', 'admin_id', 'slug'];
 
     protected  $guarded = ['name', 'description', 'slug'];
 
-    protected  $hidden = ['id', 'admin_nickname', 'created_at', 'updated_at'];
+    protected  $hidden = ['id', 'admin_id', 'created_at', 'updated_at'];
 
     /**
     * Get the options for generating the slug.
@@ -25,7 +25,7 @@ class Group extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-        ->generateSlugsFrom(['name', 'admin_nickname'])
+        ->generateSlugsFrom(['name', 'admin_id'])
         ->saveSlugsTo('slug')
         ->usingSeparator('-');
     }
@@ -51,10 +51,10 @@ class Group extends Model
     }
 
     public function admin(){
-        return $this->belongsTo(Player::class);
+        return $this->belongsTo(Player::class, 'admin_id');
     }
 
     public function getParticipatingPlayers(){
-        return $this->belongsToMany(Player::class, 'group_players', 'group_id', 'player_nickname')->orderBy('score', 'DESC');
+        return $this->belongsToMany(Player::class, 'group_players', 'group_id', 'player_id')->orderBy('score', 'DESC');
     }
 }

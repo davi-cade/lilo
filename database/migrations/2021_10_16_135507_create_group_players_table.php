@@ -16,7 +16,7 @@ class CreateGroupPlayersTable extends Migration
         Schema::create('group_players', function (Blueprint $table) {
             $table->id();
             $table->foreignId('group_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('player_nickname');
+            $table->foreignId('player_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

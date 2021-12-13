@@ -9,8 +9,8 @@ class GroupPlayerService extends AbstractService
 {
     protected $repository = GroupPlayerRepository::class;
 
-    public function store($player_nickname, $group_id){
-        return $this->repository->store($player_nickname, $group_id);
+    public function store($player_id, $group_id){
+        return $this->repository->store($player_id, $group_id);
     }
 
 }

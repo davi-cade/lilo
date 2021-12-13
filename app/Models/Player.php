@@ -11,9 +11,9 @@ class Player extends Model
 
     protected $fillable = ['nickname', 'user_id'];
 
-    protected $guarded = ['rubys', 'chances', 'coins', 'score'];
+    protected $guarded = ['id', 'rubys', 'chances', 'coins', 'score'];
     
-    protected $hidden = ['id', 'user_id', 'created_at', 'updated_at'];
+    protected $hidden = ['user_id', 'created_at', 'updated_at'];
 
     public function getId(){
         return $this->id;
@@ -32,10 +32,10 @@ class Player extends Model
     }
 
     public function myGroups(){
-        return $this->hasMany(Group::class, 'admin_nickname', 'nickname');
+        return $this->hasMany(Group::class, 'admin_id');
     }
 
     public function groupPlayer(){
-        return $this->hasMany('App\Models\Pivots\GroupPlayer', 'player_nickname', 'nickname');
+        return $this->hasMany(Pivots\GroupPlayer::class, 'player_id');
     }
 }

@@ -15,7 +15,9 @@ class CreateCardPlayersTable extends Migration
     {
         Schema::create('card_players', function (Blueprint $table) {
             $table->id();
-            $table->enum('assimilation', ['0', '1', '2', '3']);
+            $table->foreignId('card_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('player_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('assimilated')->default(false);
             $table->timestamps();
         });
     }

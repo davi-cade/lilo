@@ -36,4 +36,10 @@ class UserService extends AbstractService
         $directory->store($url_avatar, $url_directory, $directoryable_id, 'App\Models\User');
     }
 
+    public function destroyDirectory($id){
+        $directory = new DirectoryService();
+        $directory->destroy($id);
+    }
+
+
 }

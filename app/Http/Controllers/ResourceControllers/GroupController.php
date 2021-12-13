@@ -27,7 +27,7 @@ class GroupController extends Controller
     {
         $player = $this->playerService->getByField('user_id', Auth::user()->getId());
         $myGroups = $player->myGroups;
-        $groups = $player->groupPlayer()->with('admin');
+        $groups = $player->groupPlayer()->with('group')->get();
         return view('user.group.index', compact('myGroups', 'groups'));
     }
 

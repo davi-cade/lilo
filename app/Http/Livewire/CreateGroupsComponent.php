@@ -60,7 +60,7 @@ class CreateGroupsComponent extends Component
     public function addParticipants($id){
         $service = new GroupPlayerService();
         foreach($this->participants as $key){
-            $service->store($key['nickname'], $id);
+            $service->store($key['id'], $id);
         }
     }
 
@@ -68,6 +68,7 @@ class CreateGroupsComponent extends Component
         $this->validate();
         $service = new GroupService();
         $admin = new UserService();
+        $player = new PlayerService();
 
         $img = '/img/userProfile/default-group-image.svg';
         $groupDirectory = md5($this->title.strtotime("now"));
@@ -76,7 +77,7 @@ class CreateGroupsComponent extends Component
             $img ='/'.'storage/'.($this->image->store('img/'.$userDirectory.'/'.$groupDirectory));
         }
 
-        $group = $service->store($this->title, $this->description, $this->getUserNickname(), $img, ($userDirectory.'/'.$groupDirectory));
+        $group = $service->store($this->title, $this->description, ($player->getByField('user_id', Auth::user()->getId())->getId()), $img, ($userDirectory.'/'.$groupDirectory));
         $this->addParticipants($group->getId());
 
         return redirect("/group/{{$group->getSlug()}}");

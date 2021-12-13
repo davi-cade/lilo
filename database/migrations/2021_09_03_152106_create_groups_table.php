@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
             $table->string('name');
             $table->string('slug')->unique()->nullable();
             $table->text('description');
-            $table->string('admin_nickname');
+            $table->unsignedBigInteger('admin_id');
             $table->timestamps();
         });
     }

@@ -9,11 +9,11 @@ class GroupRepository extends AbstractRepository
 {
     protected $model = Group::class;
 
-    public function store($name, $description, $admin_nickname){
+    public function store($name, $description, $admin_id){
         $group = Group::create([
             'name' => $name,
             'description' => $description,
-            'admin_nickname' => $admin_nickname
+            'admin_id' => $admin_id
         ]);
         return $group;
     }

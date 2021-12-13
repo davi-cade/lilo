@@ -9,9 +9,9 @@ class GroupPlayerRepository extends AbstractRepository
 {
     protected $model = GroupPlayer::class;
 
-    public function store($player_nickname, $group_id){
+    public function store($player_id, $group_id){
         GroupPlayer::create([
-            'player_nickname' => $player_nickname,
+            'player_id' => $player_id,
             'group_id' => $group_id
         ]);
     }

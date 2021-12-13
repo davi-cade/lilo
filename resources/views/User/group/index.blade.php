@@ -16,11 +16,11 @@
 
     <h2>Grupos que você está participando</h2>
     @foreach($groups as $key)
-        <h2>{{$key->getName()}}</h2>
-        <p>{{$key->getDescription()}}</p>
+        <h2>{{$key->group->getName()}}</h2>
+        <p>{{$key->group->getDescription()}}</p>
         <div>
-            <p>{{$key->getCreationDate()}}</p>
-            <a href="/group/{{$key->getSlug()}}">ver</a>
+            <p>{{$key->group->getCreationDate()}}</p>
+            <a href="/group/{{$key->group->getSlug()}}">ver</a>
         </div>
     @endforeach
 @endsection

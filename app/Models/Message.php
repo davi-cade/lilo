@@ -17,7 +17,7 @@ class Message extends Model
         return $this->id;
     }
 
-    public function message(){
+    public function getMessage(){
         return $this->message;
     }
 

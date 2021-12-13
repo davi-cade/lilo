@@ -10,8 +10,8 @@ class GroupService extends AbstractService
 {
     protected $repository = GroupRepository::class;
 
-    public function store($name, $description, $admin_nickname, $img, $directory){
-        $group  = $this->repository->store($name, $description, $admin_nickname);
+    public function store($name, $description, $admin_id, $img, $directory){
+        $group  = $this->repository->store($name, $description, $admin_id);
         $this->createDirectory($img, $directory, $group->getId());
         $this->createChat($group->getId(), $group->getName());
         return $group;
@@ -26,4 +26,29 @@ class GroupService extends AbstractService
         $directory = new DirectoryService();
         $directory->store($url_image, $url_directory, $directoryable_id, 'App\Models\Group');
     }
+
+    public function destroy($id){
+        try{
+            $this->repository->getById($id);
+        }catch (Exception $e) {
+            return 'NÃO FOI POSSIVÉL ENCONTRAR ESSE GRUPO.';
+        }
+
+        $this->destroyDirectory($id);
+        $this->destroyChat($id);
+
+        $this->repository->destroy($id);
+        return 'O GRUPO FOI DELETADO COM SUCESSO.';
+    }
+
+    public function destroyDirectory($id){
+        $directory = new DirectoryService();
+        $directory->destroy($id);
+    }
+
+    public function destroyChat($id){
+        $chat = new ChatService();
+        $chat->destroy($id);
+    }
+    
 }

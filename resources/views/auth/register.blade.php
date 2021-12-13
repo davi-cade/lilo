@@ -1,78 +1,110 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.main')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('head')
+<link rel="stylesheet" href="/css/Register/register.css" />
+@endsection
 
-        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-            @csrf
+@section('title', 'Cadastro')
 
-            <div class="mt-4">
-                <label for="avatar">Por favor, faça o upload da sua imagem</label>
-                <input type="file" name="avatar" id="avatar">
-            </div>
+@section('content')
+<div id="container" class="container">
+		<div class="im">
+			<img src="img/login/onda.svg">
+		</div>
+		<!-- FORM SECTION -->
+		<div class="row">
+			<!-- SIGN UP -->
+			<div class="col align-items-center flex-col sign-in">
+				<div class="form-wrapper align-items-center">
+					<form class="form sign-in" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+						@csrf
+                        <div class="a">
+							<h2>Cadastro</h2>
+						</div>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+						<div class="imageContainer">
+							<label for="avatar">Por favor, faça o upload da sua imagem</label>
+							<input type="file" name="avatar" id="avatar">
+						</div>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" name="name" id="name"  placeholder="Nome" required />
+						</div>
 
-             <!-- Surname -->
-             <div>
-                <x-label for="surname" :value="__('surname')" />
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" id="surname" name="surname" placeholder="Sobrenome" required />
+						</div>
 
-                <x-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus />
-            </div>
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input id="birth_date" name="birth_date" type="date" placeholder="Data de Nascimento" required />
+						</div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+						<div class="input-group">
+							<i class='bx bx-mail-send'></i>
+							<input type="email" id="email" name="email" placeholder="Email" required />
+						</div>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" name="password" id="password"  placeholder="Senha" required autocomplete="new-password" />
+						</div>
 
-            <!-- birth date  -->
-            <div class="mt-4">
-                <x-label for="birth_date" :value="__('Data de nascimento')" />
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirme sua senha" required />
+						</div>
+						<button>
+							Cadastrar
+						</button>
+						<p>
+						</p>
+						<p>
+							<span>
+								Já tem uma conta?
+							</span>
+							<a  href="{{ route('login') }}">Clique aqui</a>
+							
+							</b>
+						</p>
+					</form>
+				</div>
+				
+			</div>
+			<!-- END SIGN UP -->
+		</div>
+		<!-- END FORM SECTION -->
+		<!-- CONTENT SECTION -->
+		<div class="row content-row">
+			
+			<!-- SIGN IN CONTENT -->
+			<div class="im">
+				<!-- <img src="assets/a/onda.svg"> -->
+			</div>
+			<div class="col align-items-center flex-col">
+				<div class="text sign-in">
+					<div class="logo">
+						<img src="img/login/001.svg" alt="welcome">
+					</div>
+					<h2>
+						O primeiro educador de surdos chamado Pedro Ponce de Léon, ensinava
+						seus alunos a falar, ler e escrever para que eles pudessem garantir
+						suas heranças.
+					</h2>
+				</div>
+				<div class="img sign-in">
+					<img src="/img/login/bg.svg" alt="welcome">
+				</div>
+			</div>
+			<!-- END SIGN IN CONTENT -->
+			<!-- SIGN UP CONTENT -->
+			
+			<!-- END SIGN UP CONTENT -->
+		</div>
+		<!-- END CONTENT SECTION -->
+	</div>
+	<script src="js/index.js"></script>
 
-                <x-input id="birth_date" class="block mt-1 w-full" type="date" name="birth_date" :value="old('birth_date')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    @endsection
