@@ -112,7 +112,7 @@
 					</h2>
 				</div>
 				<div class="img sign-in">
-					<img src="img/bg.svg" alt="welcome">
+				<img src="img/login/bg.svg" alt="welcome">
 				</div>
 			</div>
 			<!-- END SIGN IN CONTENT -->
