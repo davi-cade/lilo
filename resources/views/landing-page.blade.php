@@ -32,15 +32,15 @@
                             <a href="#contact" class="nav__link">Contato</a>
                         </li>
 
-                        <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
-                    </ul>
+                        <!-- <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
+                    </ul> -->
                 </div>
 
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-grid-alt'></i>
                 </div>
 
-                <a href="#" class="button button__header">Login</a>
+                <!-- <a href="{{url('/login')}}" class="button button__header">Login</a> -->
             </nav>
 
         </header>
@@ -60,7 +60,9 @@
                         <h1 class="home__title">Aprenda língua de<br>sinais brincando!</h1>
                         <p class="home__description">Objetivo de ensinar o vocabulário básico de libras para crianças e pré-adolescentes que não são portadores de alguma necessidade física quanto à surdez.</p>
 
-                        <a href="#" class="button">COMEÇAR</a>
+                        <a href="{{url('/register')}}" class="button">COMEÇAR</a>
+                        <a href="{{url('/login')}}" class="button">LOGIN</a>
+                        
                         <!-- <a href="#" class="button">LOGIN</a> -->
 
                     </div>   

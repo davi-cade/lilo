@@ -91,7 +91,65 @@
               <div class="row tow">
 
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                  <div class="box_one">
+                <div class="box_one">
+                      <div class="titulo">
+                        <h1 class="elemento">Modulos Premium</h1>
+                      </div>
+                      <div class="row">
+                          <div class="card-1">
+                              <div class="row text">
+                                <div class="col-3">
+                                    <img src="img/premium.svg" class="premium" alt="...">
+                                </div>
+    
+                                <div class="col-4">
+                                    <h1 class="elemento2">Extra I</h1>
+                                </div>
+    
+                                <div class="col-5">
+                                    <a href="#" class="button">Comprar</a>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="card-2">
+                            <div class="row text">
+                                <div class="col-3">
+                                    <img src="img/premium.svg" class="premium" alt="...">
+                                </div>
+    
+                                <div class="col-4">
+                                    <h1 class="elemento2">Extra II</h1>
+                                </div>
+    
+                                <div class="col-5">
+                                    <a href="#" class="button">Comprar</a>
+                                </div>
+                              </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="card-3">
+                            <div class="row text">
+                                <div class="col-3">
+                                    <img src="img/premium.svg" class="premium" alt="...">
+                                </div>
+    
+                                <div class="col-4">
+                                    <h1 class="elemento2">Extra III</h1>
+                                </div>
+    
+                                <div class="col-5">
+                                    <a href="#" class="button">Comprar</a>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+
                   </div>
 
                 </div>
