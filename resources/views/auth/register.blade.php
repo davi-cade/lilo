@@ -39,6 +39,8 @@
 
                         <div class="a"><h2>Cadastro</h2></div>
 
+						<input type="file" id="flImage" name="fImage" accept="image/*">
+
 
                         <div class="input-group">
 						<i class='bx bxs-user'></i>
