@@ -29,13 +29,36 @@
 
 html,
 body {
-    background-color:#add7ff;
+    background-color:#b5fcfe;
     height: 100vh;
     /* overflow: hidden; */
     /* background-color:var(--cor-primaria); */
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito';
+}
+
+.t{
+ padding: 0%;
+margin-top: -1vh;
+ 
+}
+
+.d{
+text-decoration: none;
+color:#000000;
+}
+
+span{
+    color:black;
+
+}
+
+.e{
+color: cyan;
+text-decoration: none;
+font-style: bold;
     
     
+
 }
 
 .form-wrapper{
@@ -184,9 +207,10 @@ element.style {
 }
 
 .form button {
+    margin-top: 4%;
     cursor: pointer;
     width: 100%;
-    padding: .6rem 0;
+    padding: .8rem 0;
     
     border: none;
    
@@ -419,6 +443,8 @@ margin-top: -20vh;
 }
 
 /* RESPONSIVE */
+
+
 
 @media only screen and (max-width: 425px) {
 
@@ -695,6 +721,24 @@ margin-top: -20vh;
         transform: translateX(-1600px);
       }
     }
+
+
+    @media (max-width: 575.98px) {
+        .logo{
+            
+        }
+        .img.sign-in{
+           margin-top: -10%;
+        }
+
+        .waves{
+            display: none;
+        }
+        .form{
+            margin-top: 10vh;
+        }
+    }
+
     
           
             

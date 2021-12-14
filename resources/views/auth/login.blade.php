@@ -9,21 +9,15 @@
 @section('content')
 <div id="container" class="container">
 		<div class="im">
-<<<<<<< HEAD
-			<img src="img/login/onda.svg">
-		</div>
-=======
 			<!-- <img src="img/onda.svg"> -->
 		</div>
 		
 		
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 		<!-- FORM SECTION -->
 		<div class="row">
 			<!-- SIGN IN -->
 			<div class="col align-items-center flex-col sign-in">
 				<div class="form-wrapper align-items-center">
-<<<<<<< HEAD
 					<form class="form sign-in" method="POST" action="{{ route('login') }}">
 					@csrf
 						<div class="a">
@@ -32,8 +26,9 @@
 						
 						<div class="input-group">
 							<i class='bx bxs-user'></i>
-							<input type="email" id="email" name="email" placeholder="Seu email" required autofocus />
 							@error('email') <span class="error">{{ $message }}</span> @enderror
+							<input type="email" id="email" name="email" placeholder="Email" required autofocus />
+							
 						</div>
 						<div class="input-group">
 							<i class='bx bxs-lock-alt'></i>
@@ -42,8 +37,11 @@
 						</div>
 						<div>
 							<label for="remember_me">
+								<div class="t">
 								<input id="remember_me" type="checkbox" id="remember" name="remember">
 								<span>Matenha-me conectado</span>
+								</div>
+								
 							</label>
 						</div>
 						<button>
@@ -51,64 +49,19 @@
 						</button>
 						<p>
 							<b>
-								<a href="{{ route('password.request') }}">Esqueceu sua senha?</a>
-=======
-
-                <form action="{{ route('login') }}" method="POST" class="form sign-in">
-				@if ($errors->any())
-						<div style="color:red;">
-								@foreach ($errors->all() as $error)
-									<p>{{ $error }}</p>
-								@endforeach
-						</div>
-					@endif
-					@csrf
-                
-					<div class="form sign-in">
-						
-
-						<div class="a"><h2>Entrar</h2></div>
-
-						
-						<div class="input-group">
-						<i class='bx bxs-user'></i>
-						<input id="email" type="email" name="email" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
-					</div>
-
-					<div class="input-group">
-						<i class='bx bxs-lock-alt'></i>
-						<input id="password" type="password" name="password" placeholder="Senha" required autocomplete="current-password">
-					</div>
-
-
-
-						<button>Entrar</button>
-						<p>
-							<b>
-								Esqueceu sua senha?
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
+								<a href="{{ route('password.request') }}" class="d">Esqueceu sua senha?</a>
 							</b>
 						</p>
 						<p>
 							<span>
 								Não tem uma conta ainda?
 							</span>
-<<<<<<< HEAD
-							<a href="{{url('/register')}}">Clique aqui</a>
+							<a href="{{url('/register')}}" class="e">Clique aqui!</a>
 							
 							</b>
 						</p>
 					</form>
 				</div>
-=======
-							<a href="https://www.google.com">Clique aqui</a>
-							
-							</b>
-						</p>
-					</div>
-				</div>
-				
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 			</div>
 			<!-- END SIGN IN -->
 		</div>
@@ -122,11 +75,7 @@
 			<div class="col align-items-center flex-col">				
 				<div class="text sign-in">
 					<div class="logo">
-<<<<<<< HEAD
-						<img src="img/login/001.svg" alt="welcome">
-=======
 						<img src="img/001.svg" alt="welcome">
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 					</div>
 					<h2>
 						Em média 5% da população brasileira, que equivale a 9,6 milhões de pessoas, sofrem de deficiência auditiva.
@@ -141,8 +90,6 @@
 		<!-- END CONTENT SECTION -->
 	</div>
 
-<<<<<<< HEAD
-=======
 	<onda>
         <svg
           class="waves"
@@ -169,6 +116,5 @@
         </svg>
       </onda>
 
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 	<script src="/js/index.js"></script>
     @endsection

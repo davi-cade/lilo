@@ -22,7 +22,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    font-family: 'Nunito';
 }
 
 
@@ -30,15 +30,36 @@
     position: absolute;
 }
 
+.bx{
+    
+}
+
 html,
 body {
-    background-color:#add7ff;
+    background-color:#b5fcfe;
     height: 100vh;
     /* overflow: hidden; */
     /* background-color:var(--cor-primaria); */
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito';
     
     
+}
+span{
+    color:black;
+
+}
+
+.e{
+color: cyan;
+text-decoration: none;
+font-style: bold;
+    
+    
+
+}
+
+#birth_date{
+color:var(--gray-2);
 }
 
 .imageContainer{
@@ -63,13 +84,14 @@ input[type='file'] {
     color:var(--black);
     font-size: 20px;
     margin-left: vh;
+    padding: 2%;
  
 
 }
 #imgPhoto {
     margin-top: -40%;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     padding:2px;
     background-color: #eee;
     border: 5px solid #ccc;
@@ -173,7 +195,7 @@ margin-top: -3vh;  */
 
 .form {
     /* height: 50vh; */
-    padding: 1rem;
+    padding: 0.5rem;
     /* background-color: var(--white);
     border-radius: 1.5rem; */
     width: 100%;
@@ -190,6 +212,8 @@ box-sizing: border-box;
 
 border-radius: 20px;
 z-index: 100;
+
+
 
 }
 .form.sign-up{
@@ -214,6 +238,9 @@ element.style {
     transform: translateY(-50%);
     font-size: 1.4rem;
     color: var(--gray-2);
+    margin-top: -1.4vh;
+    
+    
 }
 
 .input-group input {
@@ -224,6 +251,8 @@ element.style {
     border-radius: .5rem;
     border: 0.125rem solid var(--white);
     outline: none;
+    margin-top: -2vh;
+    
     
 }
 
@@ -233,7 +262,7 @@ element.style {
 
 .form button {
     cursor: pointer;
-    width: 100%;
+    width: 70%;
     padding: .6rem 0;
     
     border: none;
@@ -753,8 +782,31 @@ margin-top: -20vh;
         }
         .img.sign-in{
             display: none;
-
         }
+
+        .waves{
+            display: none;
+        }
+        .form{
+            margin-top: 10vh;
+        }
+
+        .form.sign-in{
+          
+        }
+
+        #imgPhoto {
+            width: 60px;
+            height: 60px;
+        }
+
+        .a{
+            padding: 5%;
+        }
+
+        
+
+       
     }
 
     

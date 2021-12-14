@@ -21,7 +21,7 @@
   --scroll-bar-color: hsl(var(--hue), 4%, 85%);
   --scroll-thumb-color: hsl(var(--hue), 4%, 75%);
   /*========== Font and typography ==========*/
-  --body-font: 'Nunito', sans-serif;
+  --body-font: 'Nunito';
   --biggest-font-size: 2rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1.125rem;

@@ -73,14 +73,14 @@
             <section class="about section container" id="about">
                 <div class="about__container grid">
                     <div class="about__data">
-                        <h2 class="section__title-center">Descubra um pouco mais<br> sobre o Lilo</h2>
+                        <h2 class="section__title-center">Descubra um pouco mais<br> sobre os desenvolvedores!</h2>
                         <p class="about__description">Somos uma dupla de estudantes do curso Técnico em Informática do IFPE campus Garanhuns, que se dedicou a criar um website gratuito que ajuda a alfabetizar qualquer criança da sua própria casa.
 
                         </p>
                     </div>
 
                    
-                        <img src="/img/home-ilustration.svg" svg class="svg__img svg__color about__img" alt="...">
+                        <img src="/img/home-developers.svg" svg class="svg__img svg__color about__img" alt="...">
                 </div>
             </section>
 
@@ -103,7 +103,7 @@
                 <h2 class="section__title">Lilo<br>Oferece:</h2>
                 <div class="services__container grid">
                     <div class="services__data">
-                        <h3 class="services__subtitle">Mudulos Gratuitos</h3>
+                        <h3 class="services__subtitle">Módulos Gratuitos</h3>
                        
                             <img src="/img/home-ilustration.svg" svg class="svg__color services__img" alt="...">
 

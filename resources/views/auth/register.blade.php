@@ -4,71 +4,18 @@
 <link rel="stylesheet" href="/css/Register/register.css" />
 @endsection
 
-<<<<<<< HEAD
 @section('title', 'Cadastro')
-=======
-@section('title', 'Register')
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 
 @section('content')
 <div id="container" class="container">
 		<div class="im">
-<<<<<<< HEAD
-			<img src="img/login/onda.svg">
-=======
 			<!-- <img src="assets/a/onda.svg"> -->
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 		</div>
 		<!-- FORM SECTION -->
 		<div class="row">
 			<!-- SIGN UP -->
 			<div class="col align-items-center flex-col sign-in">
 				<div class="form-wrapper align-items-center">
-<<<<<<< HEAD
-					<form class="form sign-in" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-						@csrf
-                        <div class="a">
-							<h2>Cadastro</h2>
-						</div>
-
-						<div class="imageContainer">
-							<label for="avatar">Por favor, faça o upload da sua imagem</label>
-							<input type="file" name="avatar" id="avatar">
-						</div>
-
-						<div class="input-group">
-							<i class='bx bxs-user'></i>
-							<input type="text" name="name" id="name"  placeholder="Nome" required />
-						</div>
-
-						<div class="input-group">
-							<i class='bx bxs-user'></i>
-							<input type="text" id="surname" name="surname" placeholder="Sobrenome" required />
-						</div>
-
-						<div class="input-group">
-							<i class='bx bxs-user'></i>
-							<input id="birth_date" name="birth_date" type="date" placeholder="Data de Nascimento" required />
-						</div>
-
-						<div class="input-group">
-							<i class='bx bx-mail-send'></i>
-							<input type="email" id="email" name="email" placeholder="Email" required />
-						</div>
-
-						<div class="input-group">
-							<i class='bx bxs-lock-alt'></i>
-							<input type="password" name="password" id="password"  placeholder="Senha" required autocomplete="new-password" />
-						</div>
-
-						<div class="input-group">
-							<i class='bx bxs-lock-alt'></i>
-							<input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirme sua senha" required />
-						</div>
-						<button>
-							Cadastrar
-						</button>
-=======
 
 				<form method="POST" action="{{ route('register') }}" class="form sign-in">
 					@if ($errors->any())
@@ -86,56 +33,63 @@
 
                         <div class="max-width">
                             <div class="imageContainer">
-                                <img src="img/addprofilee.svg" alt="Selecione uma imagem" id="imgPhoto">
+                                <img  src="img/addprofilee.svg" alt="Selecione uma imagem" id="imgPhoto">
+								<!-- <input type="file" id="flImage" name="fImage" accept="image/*"> -->
+								<input type="file" name="avatar" id="avatar" accept="image/*">
                             </div>
                         </div>
+						
 
                         <div class="a"><h2>Cadastro</h2></div>
 
-						<input type="file" id="flImage" name="fImage" accept="image/*">
+						<!-- <input type="file" id="flImage" name="fImage" accept="image/*"> -->
+
+						<!-- <input type="file" name="avatar" id="avatar"> -->
 
 
                         <div class="input-group">
-						<i class='bx bxs-user'></i>
-						<input id="name" type="text" placeholder="Nome Completo">
-					</div>
+							<i class='bx bxs-user'></i>
+							<input type="text" name="name" id="name"  placeholder="Nome" required />
+						</div>
+
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" id="surname" name="surname" placeholder="Sobrenome" required />
+						</div>
 
 					<div class="input-group">
-						<i class='bx bx-mail-send'></i>
-						<input id="email" type="email" placeholder="Email">
-					</div>
+							<i class='bx bxs-user'></i>
+							<input id="birth_date" name="birth_date" type="date" placeholder="Data de Nascimento" required />
+						</div>
 
 					<div class="input-group">
-						<i class='bx bxs-lock-alt'></i>
-						<input id="" type="password" placeholder="Senha">
-					</div>
+							<i class='bx bx-mail-send'></i>
+							<input type="email" id="email" name="email" placeholder="Email" required />
+						</div>
+
 
 					<div class="input-group">
-						<i class='bx bxs-lock-alt'></i>
-						<input id="" type="password" placeholder="Confirme a sua senha">
-					</div>
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" name="password" id="password"  placeholder="Senha" required autocomplete="new-password" />
+						</div>
+
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirme sua senha" required />
+						</div>
 
 						<button>Cadastrar</button>
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 						<p>
 						</p>
 						<p>
 							<span>
 								Já tem uma conta?
 							</span>
-<<<<<<< HEAD
-							<a  href="{{ route('login') }}">Clique aqui</a>
+							<a href="{{url('/login')}}" class="e">Clique aqui!</a>
 							
 							</b>
 						</p>
 					</form>
-=======
-							<a href="https://www.google.com">Clique aqui</a>
-							
-							</b>
-						</p>
-					</div>
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 				</div>
 				
 			</div>
@@ -152,11 +106,7 @@
 			<div class="col align-items-center flex-col">
 				<div class="text sign-in">
 					<div class="logo">
-<<<<<<< HEAD
 						<img src="img/login/001.svg" alt="welcome">
-=======
-					<img src="img/001.svg" alt="welcome">
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 					</div>
 					<h2>
 						O primeiro educador de surdos chamado Pedro Ponce de Léon, ensinava
@@ -165,11 +115,7 @@
 					</h2>
 				</div>
 				<div class="img sign-in">
-<<<<<<< HEAD
 					<img src="/img/login/bg.svg" alt="welcome">
-=======
-				<img src="img/login/bg.svg" alt="welcome">
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 				</div>
 			</div>
 			<!-- END SIGN IN CONTENT -->
@@ -179,8 +125,6 @@
 		</div>
 		<!-- END CONTENT SECTION -->
 	</div>
-<<<<<<< HEAD
-=======
 	<onda>
         <svg
           class="waves"
@@ -206,7 +150,6 @@
           />
         </svg>
       </onda>
->>>>>>> 8ab678b6095eec4897a8a368509acdf3ca56e3da
 	<script src="js/index.js"></script>
 
     @endsection
