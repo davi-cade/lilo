@@ -17,11 +17,9 @@ class CreateModulePlayersTable extends Migration
             $table->id();
             $table->boolean('accessible')->default(false);
             $table->boolean('concluded')->default(false);
-            $table->integer('total_available_card');
             $table->integer('total_assimilated_card');
             $table->foreignId('module_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('player_nickname');
-            $table->unsignedBigInteger('next_module_player_id')->nullable();
+            $table->string('player_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -15,10 +15,11 @@ class CreateModulesTable extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
+            $table->string('url_image');
             $table->string('title');
             $table->string('slug')->unique();
-            $table->integer('position')->unique();
             $table->text('description');
+            //$table->unsignedBigInteger('next_module_id');
             $table->timestamps();
         });
     }

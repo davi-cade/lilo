@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddModuleIdToTask extends Migration
+class AddNextModuleIdToModulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddModuleIdToTask extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->foreign('belonging_module_id')->references('id')->on('modules')->onUpdate('cascade')->onDelete('cascade');
+        Schema::table('modules', function (Blueprint $table) {
+            //$table->foreign('next_module_id')->unique()->references('id')->on('modules')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -25,8 +25,8 @@ class AddModuleIdToTask extends Migration
      */
     public function down()
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->dropForeign(['belonging_module_id']);
+        Schema::table('modules', function (Blueprint $table) {
+            //$table->dropForeign(['next_module_id']);
         });
     }
 }

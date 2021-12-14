@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTaskPlayersTable extends Migration
+class AddModuleIdToCard extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateTaskPlayersTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_players', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('cards', function (Blueprint $table) {
+            $table->foreign('belonging_module_id')->references('id')->on('modules')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -26,6 +25,8 @@ class CreateTaskPlayersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_players');
+        Schema::table('cards', function (Blueprint $table) {
+            $table->dropForeign(['belonging_module_id']);
+        });
     }
 }
