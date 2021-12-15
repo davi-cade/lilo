@@ -15,8 +15,8 @@ class ShowModulesComponent extends Component
         return view('livewire.show-modules-component', compact('modules'));
     }
 
-    public function destroy($id){
+    public function destroy($slug){
         $service = new ModuleService();
-        return $service->destroy($id);
+        return $service->destroy($slug['slug']);
     }
 }

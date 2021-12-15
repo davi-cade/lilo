@@ -11,16 +11,11 @@ class ModuleService extends AbstractService
 
     public function store($url_image, $title, $description){
         $module = $this->repository->store($url_image, $title, $description);
-        return redirect("/admin/module/{$module->getSlug()}");
+        return $module;
     }
 
     public function destroy($slug){
-        try{
-            $this->repository->destroy($slug);
-        }catch (Exception $e) {
-            return redirect('/admin/module')->with('status', 'Módulo não encontrado');
-        }
-        return redirect('/admin/module')->with('status', 'Módulo deletado com sucesso');
+        return $this->repository->destroy($slug);
     }
     
 }

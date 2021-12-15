@@ -8,6 +8,8 @@ use App\Services\CardService;
 use App\Services\ModuleService;
 use Livewire\WithFileUploads;
 
+use App\Services\ExtraServices\ModulesPublisherExtraService;
+
 
 class ShowCardsComponent extends Component
 {
@@ -38,11 +40,14 @@ class ShowCardsComponent extends Component
         $this->validate();
         $service = new CardService();
         $moduleService = new ModuleService();
+        $publisher = new ModulesPublisherExtraService();
 
         $module = $moduleService->getBySlug($this->post);
 
         $vid ='/'.'storage/'.($this->video->store('video/'.$module->getTitle().'/'.$this->title));
 
-        $group = $service->store($this->title, $vid, $module->getId());
+        $card = $service->store($this->title, $vid, $module->getId());
+
+        $publisher->publishCard($card->getId());
     }
 }

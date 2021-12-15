@@ -5,14 +5,17 @@ namespace App\Http\Controllers\ResourceControllers;
 use App\Http\Controllers\Controller;
 use App\Services\ModuleService;
 use Illuminate\Http\Request;
+use App\Services\ExtraServices\ModulesPublisherExtraService;
 
 class ModuleController extends Controller
 {
     protected $module;
+    protected $publisher;
 
-    public function __construct(ModuleService $moduleService)
+    public function __construct(ModuleService $moduleService, ModulesPublisherExtraService $modulesPublisherExtraService)
     {
         $this->module = $moduleService;
+        $this->publisher = $modulesPublisherExtraService;
     }
 
     /**
@@ -55,7 +58,12 @@ class ModuleController extends Controller
         if($request->hasFile('image') && $request->file('image')->isValid()){
             $img ='/'.'storage/'.($request->file('image')->store('img/module/'.$request->title));
         }
-        return $this->module->store($img, $request->title, $request->description);
+         
+        $moduleCreated = $this->module->store($img, $request->title, $request->description);
+
+        $this->publisher->publishModule($moduleCreated->getId());
+
+        return redirect("/admin/module/{$moduleCreated->getSlug()}");
     }
 
     /**
@@ -102,6 +110,7 @@ class ModuleController extends Controller
      */
     public function destroy($slug)
     {
-        return $this->module->destroy($slug);
+        $this->module->destroy($slug);
+        return redirect("/admin/module"); 
     }
 }

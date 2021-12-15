@@ -13,7 +13,7 @@
     <h1>Nome: {{$module['title']}}</h1>
     <p>Descrição: {{$module['description']}}</p>
 
-    <form action="/module/{{$module['slug']}}" method="post">
+    <form action="/admin/module/{{$module['slug']}}" method="post">
         @csrf
         @method('DELETE')
         <button type="submit">Delete</button>
