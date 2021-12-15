@@ -9,8 +9,8 @@ class ModulePlayerService extends AbstractService
 {
     protected $repository = ModulePlayerRepository::class;
 
-    public function store($player_nickname, $module_id, $total_available_card){
-        return $this->repository->store($player_nickname, $module_id, $total_available_card);
+    public function store($player_id, $module_id){
+        return $this->repository->store($player_id, $module_id);
     }
 
 }

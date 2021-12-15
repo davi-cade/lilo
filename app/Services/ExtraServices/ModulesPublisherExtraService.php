@@ -7,15 +7,17 @@ use App\Services\Pivots\ModulePlayerService;
 
 class ModulesPublisherExtraService
 {
-    public function publish($module_id){
+    protected $playerService;
 
-        $playerService = new PlayerService();
+    public function __construct(){
+        $this->playerService = new PlayerService();
+    }
+    
+    public function publishModule($module_id){
         $modulePlayerService = new ModulePlayerService();
-
-        $players = $playerService->getAll();
-        
+        $players = $this->playerService->getAll();
         foreach ($players as $key){
-            $modulePlayerService->store($key->getNickname(), $module_id, 0);
+            $modulePlayerService->store($key->getId(), $module_id);
         }
     }
 

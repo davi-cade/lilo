@@ -18,15 +18,15 @@ class LauncherExtraService
         $this->modulePlayerService = $modulePlayerService;
     }
 
-    public function launch($nickname, $user_id){
-        $player = $this->playerService->store($nickname, $user_id);
-        $this->moduleStarter($player->getNickname());
+    public function launch($id, $user_id){
+        $player = $this->playerService->store($id, $user_id);
+        $this->moduleStarter($player->getId());
     }
 
-    public function moduleStarter($nickname){
+    public function moduleStarter($id){
         $modules = $this->moduleService->getAll();
         foreach ($modules as $key){
-            $this->modulePlayerService->store($nickname, $key->getId(), 0);
+            $this->modulePlayerService->store($id, $key->getId());
         }
     }
 

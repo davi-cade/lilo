@@ -35,7 +35,6 @@ class GroupService extends AbstractService
         }
 
         $this->destroyDirectory($id);
-        $this->destroyChat($id);
 
         $this->repository->destroy($id);
         return 'O GRUPO FOI DELETADO COM SUCESSO.';
@@ -44,11 +43,6 @@ class GroupService extends AbstractService
     public function destroyDirectory($id){
         $directory = new DirectoryService();
         $directory->destroy($id);
-    }
-
-    public function destroyChat($id){
-        $chat = new ChatService();
-        $chat->destroy($id);
     }
     
 }

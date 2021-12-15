@@ -9,7 +9,7 @@ class ChatService extends AbstractService
 {
     protected $repository = ChatRepository::class;
 
-    public function store($group_id, $type){
-        return $this->repository->store($group_id, $type);
+    public function store($group_id, $slug){
+        return $this->repository->store($group_id, $slug);
     }
 }
