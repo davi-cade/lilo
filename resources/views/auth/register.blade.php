@@ -17,7 +17,7 @@
 			<div class="col align-items-center flex-col sign-in">
 				<div class="form-wrapper align-items-center">
 
-				<form method="POST" action="{{ route('register') }}" class="form sign-in">
+				<form method="POST" action="{{ route('register') }}" class="form sign-in" enctype="multipart/form-data">
 					@if ($errors->any())
 						<div style="color:red;">
 								@foreach ($errors->all() as $error)
