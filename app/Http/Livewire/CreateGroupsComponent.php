@@ -80,7 +80,7 @@ class CreateGroupsComponent extends Component
         $group = $service->store($this->title, $this->description, ($player->getByField('user_id', Auth::user()->getId())->getId()), $img, ($userDirectory.'/'.$groupDirectory));
         $this->addParticipants($group->getId());
 
-        return redirect("/group/{{$group->getSlug()}}");
+        return redirect("/group/{$group->getSlug()}");
 
     }
 }

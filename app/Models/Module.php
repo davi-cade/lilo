@@ -12,11 +12,11 @@ class Module extends Model
     use HasFactory;
     use HasSlug;
 
-    protected $fillable = ['title', 'position', 'description'];
+    protected $fillable = ['url_image', 'title', 'description', 'next_module_id'];
 
     protected $guarded = ['slug'];
 
-    protected $hidden = ['id', 'created_at', 'updated_at'];
+    protected $hidden = ['id', 'next_module_id', 'created_at', 'updated_at'];
 
     /**
     * Get the options for generating the slug.
@@ -47,6 +47,10 @@ class Module extends Model
 
     public function getDescription(){
         return $this->description;
+    }
+
+    public function getUrlImage(){
+        return $this->url_image;
     }
     
     public function tasks(){

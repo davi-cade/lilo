@@ -9,11 +9,11 @@ class Player extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nickname', 'user_id'];
+    protected $fillable = ['nickname', 'user_id', 'chances'];
 
-    protected $guarded = ['id', 'rubys', 'chances', 'coins', 'score'];
+    protected $guarded = ['rubys', 'coins', 'score'];
     
-    protected $hidden = ['user_id', 'created_at', 'updated_at'];
+    protected $hidden = ['id', 'user_id', 'created_at', 'updated_at'];
 
     public function getId(){
         return $this->id;
@@ -28,7 +28,7 @@ class Player extends Model
     }
 
     public function modulePlayer(){
-        return $this->hasMany('App\Models\Pivots\ModulePlayer', 'player_nickname', 'nickname');
+        return $this->hasMany('App\Models\Pivots\ModulePlayer', 'player_id', 'id');
     }
 
     public function myGroups(){

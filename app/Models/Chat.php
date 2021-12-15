@@ -9,7 +9,7 @@ class Chat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['group_id','type'];
+    protected $fillable = ['group_id','slug'];
     
     protected $hidden = ['id','group_id', 'type', 'created_at', 'updated_at'];
 

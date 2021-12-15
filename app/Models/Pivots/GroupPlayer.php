@@ -15,6 +15,9 @@ class GroupPlayer extends Model
     use HasFactory;
 
     protected  $fillable = ['player_id', 'group_id'];
+
+    protected  $guarded = [];
+
     protected  $hidden = ['player_id', 'group_id', 'created_at', 'updated_at'];
 
     public function player(){
