@@ -25,7 +25,6 @@
             <a href="{{url('/admin/users')}}">Usuários</a>
             <a href="{{url('/admin/missions')}}">Missões</a>  
             <a href="{{url('/admin/module')}}">Módulos</a>
-            <a href="{{url('/admin/chat')}}">Chat</a> 
         </nav>
         <div>
             <article>Número de Player: {{$totalPlayer}}</article>

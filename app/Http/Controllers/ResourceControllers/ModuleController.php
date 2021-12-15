@@ -46,10 +46,16 @@ class ModuleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'image' => ['sometimes', 'image', 'mimes:jpg,jpeg,png,svg,bmp', 'max:5000'],
             'title' => ['required', 'string', 'min:5', 'max:255'],
             'description' => ['required', 'max:1000'],
         ]);
-        return $this->module->store($request->title, $request->description);
+
+        $img = '/img/userProfile/default-avatar.svg';
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $img ='/'.'storage/'.($request->file('image')->store('img/module/'.$request->title));
+        }
+        return $this->module->store($img, $request->title, $request->description);
     }
 
     /**
@@ -61,8 +67,8 @@ class ModuleController extends Controller
     public function show($slug)
     {
         $module = $this->module->getByField('slug', $slug);
-        $tasks = $module->tasks;
-        return view('administrator.module.show', compact('module', 'tasks'));
+        $cards = $module->cards;
+        return view('administrator.module.show', compact('module', 'cards'));
     }
 
     /**

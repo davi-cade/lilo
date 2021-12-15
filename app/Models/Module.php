@@ -53,7 +53,7 @@ class Module extends Model
         return $this->url_image;
     }
     
-    public function tasks(){
-        return $this->hasMany(Task::class, 'belonging_module_id', 'id');
+    public function cards(){
+        return $this->hasMany(Card::class, 'belonging_module_id', 'id');
     }
 }

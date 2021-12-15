@@ -17,4 +17,8 @@ class CardRepository extends AbstractRepository
         ]);
         return $card;
     }
+
+    public function destroy($id){
+        return $this->getById($id)->delete();
+    }
 }

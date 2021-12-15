@@ -11,14 +11,7 @@ class ModulePlayer extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
-    protected  $fillable = ['player_id', 'module_id', 'next_module_player_id', 'total_assimilated_card', 'total_available_card'];
-
-    protected  $guarded = [];
-
-=======
-    protected  $fillable = ['player_id', 'module_id', 'next_module_id', 'total_assimilated_card', 'total_available_card'];
->>>>>>> 28a4f5b27a3537cec13932e99e520667494421d3
+    protected  $fillable = ['player_id', 'module_id', 'total_assimilated_card', 'total_available_card'];
     protected  $hidden = ['accessible', 'concluded', 'module_id', 'player_id', 'created_at', 'updated_at'];
 
     public function getTotalAvailableCard(){

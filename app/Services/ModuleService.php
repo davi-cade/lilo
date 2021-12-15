@@ -10,7 +10,8 @@ class ModuleService extends AbstractService
     protected $repository = ModuleRepository::class;
 
     public function store($url_image, $title, $description){
-        return $this->repository->store($url_image, $title, $description);
+        $module = $this->repository->store($url_image, $title, $description);
+        return redirect("/admin/module/{$module->getSlug()}");
     }
 
     public function destroy($slug){

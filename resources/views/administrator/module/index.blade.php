@@ -5,20 +5,23 @@
 @section('content')
 
 <a href="{{url('/admin/home')}}">Voltar</a>
-<div>
-    <a href="{{url('/admin/module/create')}}">Cadastrar novo Módulo</a>
-</div>
 
-<div>
-    <p>Número de Módulos: {{$totalNumberModules}}</p>
-    @foreach ($modules as $module)
-        <div class="m-11 bg-green-500 max-w-7xl">
-            <h3>{{$module->title}}</h3>
-            <p>{{$module->description}}</p>
-            <p>{{$module->getCreationDate()}}</p>
-            <a href="/admin/module/{{$module->getSlug()}}">ver</a>
-        </div>
-    @endforeach
-</div>
+    <form method="POST" action="{{url('/admin/module/publish')}}" enctype="multipart/form-data">
+        @csrf
+        <label for="image">Por favor, faça o upload da sua imagem</label>
+        <input type="file" name="image" id="image"><br/>
+        @error('image') <span class="error">{{ $message }}</span> @enderror
+
+        <label for="title">Titulo</label>
+        <input id="title" type="text" name="title" required><br/>
+        @error('title') <span class="error">{{ $message }}</span> @enderror
+
+        <label for="description">Descrição</label>
+        <input id="description" type="text" name="description" required><br/>
+        @error('description') <span class="error">{{ $message }}</span> @enderror
+        <button>Publicar</button>
+    </form>
+
+    @livewire('App\Http\Livewire\ShowModulesComponent')
 
 @endsection
