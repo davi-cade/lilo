@@ -13,13 +13,13 @@ class GroupService extends AbstractService
     public function store($name, $description, $admin_id, $img, $directory){
         $group  = $this->repository->store($name, $description, $admin_id);
         $this->createDirectory($img, $directory, $group->getId());
-        $this->createChat($group->getId(), $group->getName());
+        $this->createChat($group->getId());
         return $group;
     }
 
-    public function createChat($group_id, $title){
+    public function createChat($group_id){
         $chat = new ChatService();
-        $chat->store($group_id, $title);
+        $chat->store($group_id);
     }
 
     public function createDirectory($url_image, $url_directory, $directoryable_id){

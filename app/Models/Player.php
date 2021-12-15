@@ -11,9 +11,9 @@ class Player extends Model
 
     protected $fillable = ['nickname', 'user_id', 'chances'];
 
-    protected $guarded = ['rubys', 'coins', 'score'];
+    protected $guarded = ['id', 'rubys', 'coins', 'score'];
     
-    protected $hidden = ['id', 'user_id', 'created_at', 'updated_at'];
+    protected $hidden = ['user_id', 'created_at', 'updated_at'];
 
     public function getId(){
         return $this->id;

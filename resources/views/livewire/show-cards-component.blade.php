@@ -19,7 +19,6 @@
     <h3>Cartões Disponiveis</h3>
     @foreach($cards as $key)
         <div>
-            <h2>{{$key->url_video}}</h2>
             <video autoplay loop preload="auto"><source src="{{asset($key->url_video)}}"></video>
             <h3>{{$key->title}}</h3>
             <button wire:click="destroy({{$key->getId()}})">Deletar</button>    
