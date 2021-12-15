@@ -9,10 +9,10 @@ class ChatRepository extends AbstractRepository
 {
     protected $model = Chat::class;
 
-    public function store($group_id, $type){
+    public function store($group_id, $slug){
         $chat = Chat::create([
             'group_id' => $group_id,
-            'type' => $type
+            'slug' => $slug
         ]);
         return $chat;
     }

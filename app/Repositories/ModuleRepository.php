@@ -9,14 +9,13 @@ class ModuleRepository extends AbstractRepository
 {
     protected $model = Module::class;
 
-    public function store($title, $description){
+    public function store($url_image, $title, $description){
 
         $module = Module::create([
+            'url_image' => $url_image,
             'title' => $title,
-            'position' => ($this->count())+1,
             'description' => $description
         ]);
-        
         return $module;
     }
 

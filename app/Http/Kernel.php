@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'permission' => \Laratrust\Middleware\LaratrustPermission::class,
         'ability' => \Laratrust\Middleware\LaratrustAbility::class,
         //Particular Middlewares 
-        'playerExists' => \App\Http\Middleware\CheckIfPlayerExists::class
+        'playerExists' => \App\Http\Middleware\CheckIfPlayerExists::class,
+        'enoughChances' => \App\Http\Middleware\EnoughChances::class
     ];
 }

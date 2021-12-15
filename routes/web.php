@@ -44,6 +44,11 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         
         Route::resource('group', App\Http\Controllers\ResourceControllers\GroupController::class);
         Route::post('/group/publish', 'App\Http\Controllers\ResourceControllers\GroupController@store');
+
+        Route::group(['middleware' => ['enoughChances']], function() {
+
+        });
+
     });
           
 });

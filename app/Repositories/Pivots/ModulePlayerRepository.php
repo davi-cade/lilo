@@ -9,12 +9,11 @@ class ModulePlayerRepository extends AbstractRepository
 {
     protected $model = ModulePlayer::class;
 
-    public function store($player_nickname, $module_id, $total_available_card){
+    public function store($player_id, $module_id){
         ModulePlayer::create([
-            'player_nickname' => $player_nickname,
-            'module_id' => $module_id,
             'total_assimilated_card' => 0,
-            'total_available_card' => $total_available_card,
+            'player_id' => $player_id,
+            'module_id' => $module_id
         ]);
     }
 
