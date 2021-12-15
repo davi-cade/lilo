@@ -9,10 +9,11 @@ class CardRepository extends AbstractRepository
 {
     protected $model = Card::class;
 
-    public function store($title, $url_video, $belonging_module_id){
+    public function store($title, $url_video, $difficulty_level, $belonging_module_id){
         $card = Card::create([
             'title' => $title,
-            'url_video' => $url_video, 
+            'url_video' => $url_video,
+            'difficulty_level' => $difficulty_level, 
             'belonging_module_id' => $belonging_module_id
         ]);
         return $card;

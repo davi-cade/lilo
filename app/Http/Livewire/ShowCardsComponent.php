@@ -18,6 +18,7 @@ class ShowCardsComponent extends Component
     public $post;
     public $title;
     public $video;
+    public $difficultyLevel;
 
     protected $rules = [
         'title' =>['required', 'string', 'min:5', 'max:255'],
@@ -26,8 +27,9 @@ class ShowCardsComponent extends Component
 
     public function render()
     {
-        $service = new CardService();
-        $cards = $service->getAll();
+        $moduleService = new ModuleService();
+        $module = $moduleService->getBySlug($this->post);
+        $cards = $module->cards;
         return view('livewire.show-cards-component', compact('cards'));
     }
 
@@ -46,7 +48,7 @@ class ShowCardsComponent extends Component
 
         $vid ='/'.'storage/'.($this->video->store('video/'.$module->getTitle().'/'.$this->title));
 
-        $card = $service->store($this->title, $vid, $module->getId());
+        $card = $service->store($this->title, $vid, $this->difficultyLevel, $module->getId());
 
         $publisher->publishCard($card->getId());
     }

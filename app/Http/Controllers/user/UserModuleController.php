@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Controller;
+use App\Services\ModuleService;
 
 class UserModuleController extends Controller
 {
-
-    public function __construct()
+    public function __invoke($slug)
     {
-
-    }
-
-    public function show($slug)
-    {
-        
-        return view('user.module.show');
+        $service = new ModuleService();
+        $module = $service->getBySlug($slug);
+        return view('User.Module.show', compact('module'));
     }
 }

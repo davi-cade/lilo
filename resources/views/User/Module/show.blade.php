@@ -12,7 +12,7 @@
 @section('content')
 <div class="container">
       <div class="row">
-        <a href="http://127.0.0.1:5501/painel.html">
+        <a href="/home">
             <svg xmlns="https://www.google.com/webhp?hl=pt-PT&sa=X&ved=0ahUKEwj1x_D_wJ30AhVNqpUCHdXzAr8QPAgI" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
               </svg>
@@ -20,8 +20,8 @@
     </div>
        
         <div class="card">
-            <img src="/img/lion 1.svg" class="icon" alt="...">
-            <h5 class="elemento">Animais</h5>
+            <img class="icon" src="{{$module->url_image}}" alt="module image">
+            <h5 class="elemento">{{$module->getTitle()}}</h5>
           </div>
 
           <div class="row one gx-2">
@@ -46,8 +46,7 @@
                       </div>
 
                       <div class="row">
-                        <button onclick="window.location.href =' http://127.0.0.1:5500/A%20M%C3%A9rito%20de%20Testes/Caadastro%20Lilo.html'"class="btn1">PLAY</button>
-                    
+                        <button onclick="window.location.href='/module/{{$module->getSlug()}}/{{1}}'" class="btn1">PLAY</button>
                     </div>
 
                   </div>
@@ -68,7 +67,7 @@
                        </div>
  
                        <div class="row">
-                         <button onclick="window.location.href =' http://127.0.0.1:5500/A%20M%C3%A9rito%20de%20Testes/Caadastro%20Lilo.html'"class="btn2">PLAY</button>
+                         <button onclick="window.location.href='/module/{{$module->getSlug()}}/{{2}}'" class="btn2">PLAY</button>
                      </div>
                 </div>
             </div>
@@ -88,7 +87,7 @@
                        </div>
  
                        <div class="row">
-                         <button onclick="window.location.href =' http://127.0.0.1:5500/A%20M%C3%A9rito%20de%20Testes/Caadastro%20Lilo.html'"class="btn3">PLAY</button>
+                         <button onclick="window.location.href='/module/{{$module->getSlug()}}/{{3}}'" class="btn3">PLAY</button>
                      
                      </div>
                 </div>

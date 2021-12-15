@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use App\Services\PlayerService;
+use Illuminate\Support\Facades\Auth; 
 
 class EnoughChances
 {

@@ -9,7 +9,7 @@ class Card extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'url_video', 'belonging_module_id'];
+    protected $fillable = ['title', 'url_video', 'difficulty_level', 'belonging_module_id'];
 
     protected  $guarded = [];
 
@@ -25,6 +25,10 @@ class Card extends Model
 
     public function getUrlVideo(){
         return $this->url_video;
+    }
+
+    public function difficultyLevel(){
+        return $this->difficulty_level;
     }
 
     public function task(){

@@ -154,9 +154,17 @@
 
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                  <div class="box_two">
-                    
-                  </div>
+
+                @foreach($instanceModule as $key)
+                    <div class="box_two">
+                        <img class="" src="{{$key->module->url_image}}" alt="module image">
+                        <h3>{{$key->module->getTitle()}}</h3>
+                        <h3>{{$key->module->getDescription()}}</h3> 
+                        <a href="/module/{{$key->module->getSlug()}}">Ver</a>
+                    </div>
+                @endforeach
+                  
+
                 </div>
               </div>
             </div>

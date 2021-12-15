@@ -39,14 +39,14 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::get('/home', 'App\Http\Controllers\User\UserDashboardController@index');
         Route::get('/profile', 'App\Http\Controllers\user\UserProfileController@edit');
 
-        Route::get('/module/{$slug}', 'App\Http\Controllers\ResourceControllers\ModuleController@show');
+        Route::get('/module/{slug}', App\Http\Controllers\user\UserModuleController::class);
         Route::get('/missions', 'App\Http\Controllers\ResourceControllers\MissionController@index');
         
         Route::resource('group', App\Http\Controllers\ResourceControllers\GroupController::class);
         Route::post('/group/publish', 'App\Http\Controllers\ResourceControllers\GroupController@store');
 
         Route::group(['middleware' => ['enoughChances']], function() {
-
+            Route::view('/module/{slug}/{level}', 'Atividade.atividade');
         });
 
     });

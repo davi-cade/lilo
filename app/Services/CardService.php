@@ -9,8 +9,8 @@ class CardService extends AbstractService
 {
     protected $repository = CardRepository::class;
 
-    public function store($title, $url_video, $belonging_module_id){
-        return $this->repository->store($title, $url_video, $belonging_module_id);
+    public function store($title, $url_video, $difficulty_level, $belonging_module_id){
+        return $this->repository->store($title, $url_video, $difficulty_level, $belonging_module_id);
     }
 
     public function destroy($id){
