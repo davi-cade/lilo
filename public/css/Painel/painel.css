@@ -5,7 +5,12 @@
     --cor-terciaria:#00fcfc;
   }
 
-
+ .row.five{
+  position: relative;
+  top:50%;
+  left:50%;
+  transform: translate(-47%, -10%);
+ }
  
   
   .box_one{
@@ -16,6 +21,7 @@
     border-radius: 20px;
     height: 70vh;
     margin-top: 10%; 
+    overflow-x:hidden;
     
   }
 
@@ -30,6 +36,15 @@
     margin-block-end: 10%;
     width: 100%;
     overflow-x:scroll;
+  }
+
+  .modulo-image2{
+    width: 200%;
+    height: 200%;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-47%, -50%);
   }
 
   .modulo-image{
@@ -84,6 +99,23 @@
     top:50%;
     left:50%;
     transform: translate(-50%, -210%);
+    margin-block-end: 3vh;
+  }
+
+  .card-100{
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 0px #FFD31D;;
+    border-radius: 20px;
+    height: 15vh;
+    width: 95%;
+
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -210%);
+    margin-block-end: 3vh;
   }
 
   .s{
@@ -114,11 +146,11 @@
   }
 
   .elemento-2{
-    font-size: 150%;
+    
     font-family: Nunito;
     font-style: normal;
     font-weight: 800;
-    font-size: 200%;
+    font-size: 100%;
     color: #d52020;
  
     
@@ -306,6 +338,35 @@
     color: #ffffff;
     
   }
+  .button2 {
+  
+    display: inline-block;
+    background-color:var(--cor-primaria);
+    color: #ffffff;
+    width: 100%;
+    height: 40%;
+    box-shadow: 0px 5px 0px var(--cor-secundaria);
+    border-radius: 10px;
+    font-weight:bold;
+    transition: .1s;
+  
+    font-style: normal;
+    font-weight: 900;
+    font-size: 100%;
+  
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5%;
+    margin-top: 23%;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 15px;
+    color: #ffffff;
+    
+  }
 
 
   .button:hover{
@@ -322,11 +383,11 @@
   }
 
   .elemento2{
-    font-size: 150%;
+    
     font-family: Nunito;
     font-style: normal;
     font-weight: 800;
-    font-size: 200%;
+    font-size: 150%;
     color: #000000;
     margin-top: 4%;
     margin-left: -20%;
@@ -336,6 +397,10 @@
 
 
   @media (max-width: 575.98px) {
+
+    .waves{
+      display: none;
+    }
     .box_one{
      
     }
@@ -391,6 +456,23 @@
   
   
     }
+
+    .card-100{
+     
+      background: #FFFFFF;
+      border: 5px solid #E5E5E5;
+      box-sizing: border-box;
+      box-shadow: 0px 5px 0px #FFD31D;;
+      border-radius: 20px;
+      height: 15vh;
+      width: 95%;
+  
+      position: relative;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -210%);
+  
+    }
   
     .card-picture{
       width: 12vh;
@@ -414,11 +496,19 @@
       
     }
 
+    .button2{
+      width: 110%;
+      font-size: 80%;
+
+      
+      
+    }
+
     .s{
       position: fixed;
       top:50%;
       left:50%;
-      transform: translate(110%, -35%);
+      transform: translate(110%, -20%);
     }
   }
 

@@ -92,14 +92,41 @@
                 <div class="titulo">
                     <h1 class="elemento">Seus Grupos</h1>
                   </div>
-                  <h2>Seus grupos</h2>
+                  <!-- <h2>Seus grupos</h2> -->
     @foreach($myGroups as $key)
-        <h2>{{$key->getName()}}</h2>
-        <p>{{$key->getDescription()}}</p>
-        <div>
-            <p>{{$key->getCreationDate()}}</p>
-            <a href="/group/{{$key->getSlug()}}">ver</a>
-        </div>
+    <div class="card-99">
+    <div class="row cards">
+
+<div class="col">
+<div class="card-picture">
+<img class="modulo-image" src="/img/premium.jpg" alt="module image">
+</div>
+</div>
+
+<div class="col">
+<div class="row">
+<h1 class="card-titulo">{{$key->getName()}}</h1>
+</div>
+
+<div class="row">
+<h3 class="card-des">{{$key->getDescription()}}</h3>
+</div>
+
+</div>
+
+<div class="col">
+    <div class="row">
+        <p>{{$key->getCreationDate()}}</p>
+    </div>
+
+    <div class="row">
+        <div class=s>
+            <a class="button2" href="/group/{{$key->getSlug()}}">Entrar</a>
+            </div>
+    </div>
+</div>
+</div>
+      </div>
     @endforeach
 
               </div>
@@ -110,14 +137,42 @@
                     <div class="titulo">
                         <h1 class="elemento">Grupos em que você está</h1>
                       </div>
-                      <h2>Grupos que você está participando</h2>
+                      <!-- <h2>Grupos que você está participando</h2> -->
     @foreach($groups as $key)
-        <h2>{{$key->group->getName()}}</h2>
-        <p>{{$key->group->getDescription()}}</p>
-        <div>
-            <p>{{$key->group->getCreationDate()}}</p>
-            <a href="/group/{{$key->group->getSlug()}}">ver</a>
-        </div>
+    <div class="card-99">
+    <div class="row cards">
+
+<div class="col">
+<div class="card-picture">
+<img class="modulo-image" src="/img/premium.jpg" alt="module image">
+</div>
+</div>
+
+<div class="col">
+<div class="row">
+<h1 class="card-titulo">{{$key->group->getName()}}</h1>
+</div>
+
+<div class="row">
+<h3 class="card-des">{{$key->group->getDescription()}}</h3>
+</div>
+
+</div>
+
+<div class="col">
+    <div class="row">
+        <p>{{$key->group->getCreationDate()}}</p>
+    </div>
+
+    <div class="row">
+        <div class=s>
+            <a class="button2" href="/group/{{$key->group->getSlug()}}">Entrar</a>
+            </div>
+    </div>
+</div>
+
+</div>
+      </div>
     @endforeach
                   </div>
                 </div>

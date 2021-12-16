@@ -95,60 +95,96 @@
                       <div class="titulo">
                         <h1 class="elemento">Modulos Premium</h1>
                       </div>
-                      <div class="row">
-                          <div class="card-1">
-                              <div class="row text">
-                                <div class="col-3">
-                                    <img src="img/premium.svg" class="premium" alt="...">
-                                </div>
-    
-                                <div class="col-4">
-                                    <h1 class="elemento2">Extra I</h1>
-                                </div>
-    
-                                <div class="col-5">
-                                    <a href="#" class="button">Comprar</a>
-                                </div>
-                              </div>
-                          </div>
+                      <div class="card-100">
+                    <div class="row cards">
+
+<div class="col">
+    <div class="card-picture">
+    <img class="modulo-image" src="/img/premium.svg" alt="module image">
+    </div>
+</div>
+
+<div class="col">
+  <div class="row">
+      <h1 class="card-titulo">Extra I</h1>
+  </div>
+
+  <div class="row">
+      <h3 class="card-des"></h3>
+  </div>
+
+</div>
+
+<div class="col">
+    <div class=s>
+
+    <a class="button" href="">COMEÇAR</a>
+    </div>
+</div>
+
+</div>
+                      </div>
+                    
+
+                      <div class="card-100">
+                    <div class="row cards">
+
+<div class="col">
+    <div class="card-picture">
+    <img class="modulo-image" src="/img/premium.svg" alt="module image">
+    </div>
+</div>
+
+<div class="col">
+  <div class="row">
+      <h1 class="card-titulo">Extra I</h1>
+  </div>
+
+  <div class="row">
+      <h3 class="card-des"></h3>
+  </div>
+
+</div>
+
+<div class="col">
+    <div class=s>
+
+    <a class="button" href="">COMEÇAR</a>
+    </div>
+</div>
+
+</div>
                       </div>
 
-                      <div class="row">
-                        <div class="card-2">
-                            <div class="row text">
-                                <div class="col-3">
-                                    <img src="img/premium.svg" class="premium" alt="...">
-                                </div>
-    
-                                <div class="col-4">
-                                    <h1 class="elemento2">Extra II</h1>
-                                </div>
-    
-                                <div class="col-5">
-                                    <a href="#" class="button">Comprar</a>
-                                </div>
-                              </div>
-                            
-                        </div>
-                    </div>
+                      <div class="card-100">
+                    <div class="row cards">
 
-                    <div class="row">
-                        <div class="card-3">
-                            <div class="row text">
-                                <div class="col-3">
-                                    <img src="img/premium.svg" class="premium" alt="...">
-                                </div>
-    
-                                <div class="col-4">
-                                    <h1 class="elemento2">Extra III</h1>
-                                </div>
-    
-                                <div class="col-5">
-                                    <a href="#" class="button">Comprar</a>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
+<div class="col">
+    <div class="card-picture">
+    <img class="modulo-image" src="/img/premium.svg" alt="module image">
+    </div>
+</div>
+
+<div class="col">
+  <div class="row">
+      <h1 class="card-titulo">Extra I</h1>
+  </div>
+
+  <div class="row">
+      <h3 class="card-des"></h3>
+  </div>
+
+</div>
+
+<div class="col">
+    <div class=s>
+
+    <a class="button" href="">COMEÇAR</a>
+    </div>
+</div>
+
+</div>
+                      </div>
 
                   </div>
 
@@ -156,10 +192,41 @@
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
                 <div class="scroll">
-                @foreach($instanceModule as $key)
+               
                 <div class="titulo">
                         <h1 class="elemento">Módulos</h1>
                     </div>
+                    <div class="card-99">
+                    <div class="row cards">
+
+<div class="col">
+    <div class="card-picture">
+    <img class="modulo-image2" src="/img/intro2.svg" alt="module image">
+    </div>
+</div>
+
+<div class="col">
+  <div class="row">
+      <h1 class="card-titulo">Introdução</h1>
+  </div>
+
+  <div class="row">
+      <h3 class="card-des">Ajudar novato</h3>
+  </div>
+
+</div>
+
+<div class="col">
+    <div class=s>
+
+    <a class="button2" href="">COMEÇAR</a>
+    </div>
+</div>
+
+</div>
+                      </div>
+                    
+                    @foreach($instanceModule as $key)
                     <div class="card-99">
                     <div class="row cards">
 
@@ -183,7 +250,7 @@
 <div class="col">
     <div class=s>
 
-    <a class="button" href="/module/{{$key->module->getSlug()}}">COMEÇAR</a>
+    <a class="button2" href="/module/{{$key->module->getSlug()}}">COMEÇAR</a>
     </div>
 </div>
 
@@ -254,13 +321,7 @@
 @endsection
 
 
-<!-- 
-<div class="box_two">
-                        <img class="" src="{{$key->module->url_image}}" alt="module image">
-                        <h3>{{$key->module->getTitle()}}</h3>
-                        <h3>{{$key->module->getDescription()}}</h3> 
-                        <a href="/module/{{$key->module->getSlug()}}">COMEÇAR</a>
-                    </div> -->
+
 
 
 
