@@ -23,7 +23,7 @@ class EnoughChances
         $player = $playerService->getByField('user_id', Auth::user()->getId());
 
         if($player->chances == 0){
-            return redirect('/home')->withErrors(['msg' => 'Você não tem chances o bastante para jogar']);
+            return redirect('/home')->with('msg', 'Você não tem chances o bastante para jogar');
         }
 
         return $next($request);

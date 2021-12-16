@@ -24,6 +24,6 @@ class CardRepository extends AbstractRepository
     }
 
     public function getCards($id, $num){
-        $this->model::where('belonging_module_id', $id)->where('difficulty_level', $num);
+        return $this->model::where('belonging_module_id', $id)->where('difficulty_level', $num)->get();
     }
 }

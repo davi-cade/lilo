@@ -17,7 +17,7 @@
     </header>
     <main>
         <nav>
-            <a href="{{url('/admin/profile')}}">Perfil</a>
+            <a href="{{url('/profile')}}">Perfil</a>
             @role('superadministrator')
                 <a href="{{url('/admin/register')}}">Administradores</a>
                 <a href="{{url('/admin/reports')}}">Mini Relatórios</a>

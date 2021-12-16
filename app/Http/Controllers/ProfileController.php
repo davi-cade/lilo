@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
 
@@ -10,7 +9,7 @@ use App\Services\UserService;
 use App\Services\PlayerService;
 
 
-class UserProfileController extends Controller
+class ProfileController extends Controller
 {
     protected $UserService;
     protected $PlayerService;
@@ -28,9 +27,8 @@ class UserProfileController extends Controller
      */
     public function edit()
     {
-        $registe = $this->UserService->getRegisteById(Auth::user()->getId());
-        $player = $this->playerService->getFirstByField('user_id', Auth::user()->getId()); 
-        return view('User.profile', compact('registe', 'palyer'));
+        $registe = $this->UserService->getById(Auth::user()->getId());
+        return view('Porfile.profile', compact('registe'));
     }
 
     /**

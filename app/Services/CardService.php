@@ -23,6 +23,6 @@ class CardService extends AbstractService
     }
 
     public function getCards($id, $num){
-        $this->repository->getCards($id, $num);
+       return $this->repository->getCards($id, $num);
     }
 }

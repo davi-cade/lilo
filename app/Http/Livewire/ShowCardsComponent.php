@@ -49,7 +49,7 @@ class ShowCardsComponent extends Component
         $vid ='/'.'storage/'.($this->video->store('video/'.$module->getTitle().'/'.$this->title));
 
         if ($this->difficultyLevel == null) {
-            $this->difficultyLevel= "1";
+            $this->difficultyLevel= "easy";
         }
 
         $card = $service->store($this->title, $vid, $this->difficultyLevel, $module->getId());

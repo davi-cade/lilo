@@ -5,7 +5,7 @@
 @section('content')
     <img src="{{asset(Auth::user()->directory->url_avatar)}}" alt="user-avatar">
     
-    <form method="POST" action="{{url('/admin/register')}}">
+    <form method="POST" action="{{url('')}}">
         @csrf
         <div>
             <label for="name">Nome</label>

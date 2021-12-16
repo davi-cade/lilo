@@ -31,13 +31,14 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
             Route::get('/reports', 'App\Http\Controllers\administrator\ReportController@index');
         });
     });
-    
+
+    Route::get('/profile', 'App\Http\Controllers\ProfileController@edit');
+
     Route::view('/nickname', 'RegisterNickname.nickname');
 
     Route::group(['middleware' => ['role:user', 'playerExists']], function() {
         
         Route::get('/home', 'App\Http\Controllers\User\UserDashboardController@index');
-        Route::get('/profile', 'App\Http\Controllers\user\UserProfileController@edit');
 
         Route::get('/module/{slug}', App\Http\Controllers\user\UserModuleController::class);
         Route::get('/missions', 'App\Http\Controllers\ResourceControllers\MissionController@index');

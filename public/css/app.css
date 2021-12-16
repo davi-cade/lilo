@@ -188,6 +188,13 @@ textarea {
   margin: 0; /* 2 */
 }
 
+.msg{
+  background-color: #E8E8CC;
+  color: #781D42;
+  with: 100%;
+  text-align: center;
+}
+
 /**
 Remove the inheritance of text transform in Edge and Firefox.
 1. Remove the inheritance of text transform in Firefox.

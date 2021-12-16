@@ -8,6 +8,8 @@
 
       <div class="col-14 col-sm-6 col-md-6 col-lg-5 col-xl-5">
         <div class="box_one">
+            <video preload="auto" muted autoplay loop><source src="{{asset($card[0]->url_video)}}"></video>
+            {{$card[0]->title}}
         </div>
 
       </div>
@@ -17,55 +19,36 @@
 <div class="container my-5">
 <div id="intro">
 <div class="counter">
-  <p class="prefix">Question:</p>
-  <h1 id="counter">1/10</h1>
+  <p class="prefix">Questão:</p>
+  <h1 id="counter">1/{{$quantityCards}}</h1>
 </div>
 <div class="score">
-  <p class="prefix">Score:</p>
-  <h1 id="score">3</h1>
+  <p class="prefix">Pontuação acumulada:</p>
+  <h1 id="score">{{$score}}</h1>
 </div>
 </div>
 <div class="question-holder row">
 <div class="col-12">
-  <h1 id="question">What is the answer to this question?</h1>
+  <h1 id="question">O que quer dizer esse sinal?</h1>
 </div>
 </div>
 
 <div class="row">
-<div class="col-12">
-  <div class="answer-container card">
-    <p class="answer-prefix">A</p>
-    <p class="answer-text" data-answer="a">Answer A</p>
-  </div>
-</div>
-</div>
-<div class="row">
-<div class="col-12">
-  <div class="answer-container card">
-    <p class="answer-prefix">B</p>
-    <p class="answer-text" data-answer="b">Answer B</p>
-  </div>
-</div>
-</div>
-<div class="row">
-<div class="col-12">
-  <div class="answer-container card">
-    <p class="answer-prefix">C</p>
-    <p class="answer-text" data-answer="c">Answer B</p>
-  </div>
-</div>
-</div>
-<div class="row">
-<div class="col-12">
-  <div class="answer-container card">
-    <p class="answer-prefix">D</p>
-    <p class="answer-text" data-answer="d">Answer D</p>
-  </div>
-</div>
-</div>
+  <form wire:submit.prevent="checkAnswer({{$card}})">
+    @foreach($alternative as $key)
+      <div class="col-12">
+        <div class="answer-container card">
+          <p class="answer-prefix">{{$loop->iteration}}.</p>
+          <input wire:model="optinSelected" type="radio" id="{{$key['title']}}{{$loop->iteration}}" name="option" value="{{$key['title']}}"/>
+          <label for="option" class="answer-text" data-answer="a">{{$key['title']}}</p>
+        </div>
+      </div>
+    @endforeach
+    <button type="submit" class="btn btn-primary" wire:model="checkAnswer">Conferir</button>
+  </form>
 </div>
 
-<!-- Modal -->
+<!-- Modal 
 <div
 class="modal fade"
 id="endGameModal"
@@ -103,9 +86,8 @@ aria-hidden="true"
   </div>
 </div>
 </div>
-</div>
+</div>-->
 
-          
         </div>
       </div>
     </div>
