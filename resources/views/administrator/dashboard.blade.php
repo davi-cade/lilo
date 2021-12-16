@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="\css\ADM\styles.css">
     <title>Home Admin</title>
 </head>
 <body>
@@ -22,11 +22,11 @@
                 <a href="{{url('/admin/register')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-project-diagram me-2"></i>Admins</a>
                         @endrole
-                <a href="{{url('/admin/missions')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="{{url('/admin/users')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-chart-line me-2"></i>Usuarios</a>
                 <a href="{{url('/admin/module')}}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-paperclip me-2"></i>Modúlos</a>
-                        @endrole
+                        
                 <!-- <a href="route('logout')" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>  -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -71,8 +71,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <!-- <i class="fas fa-user me-2"></i>John Doe</a> -->
-                                <img class="profile-davi" src="{{url('/profile')}}"> <h1>John Doe</h1>>
+                                <i class="fas fa-user me-2"></i>{{Auth::user()->getName()}}</a>
+                                
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -90,7 +90,7 @@
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                            @endrole
+                           
                                 <h3 class="fs-2"> {{$totalPlayer}}</h3>
                                 <p class="fs-5">Players</p>
                             </div>
@@ -101,7 +101,7 @@
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h3 class="fs-2">{{$totalModules}</h3>
+                                <h3 class="fs-2">{{$totalModules}}</h3>
                                 <p class="fs-5">Módulos</p>
                             </div>
                             <i
@@ -111,7 +111,7 @@
                      
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+                            <div> @role('superadministrator')
                                 <h3 class="fs-2"> {{$totalAdmins}}</h3>
                                 <p class="fs-5">ADM</p>
                                 @endrole
