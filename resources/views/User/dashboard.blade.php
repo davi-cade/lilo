@@ -155,23 +155,50 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
+                <div class="scroll">
                 @foreach($instanceModule as $key)
-                    <div class="box_two">
-                        <img class="" src="{{$key->module->url_image}}" alt="module image">
-                        <h3>{{$key->module->getTitle()}}</h3>
-                        <h3>{{$key->module->getDescription()}}</h3> 
-                        <a href="/module/{{$key->module->getSlug()}}">Ver</a>
+                <div class="titulo">
+                        <h1 class="elemento">Módulos</h1>
                     </div>
+                    <div class="card-99">
+                    <div class="row cards">
+
+<div class="col">
+    <div class="card-picture">
+    <img class="modulo-image" src="{{$key->module->url_image}}" alt="module image">
+    </div>
+</div>
+
+<div class="col">
+  <div class="row">
+      <h1 class="card-titulo">{{$key->module->getTitle()}}</h1>
+  </div>
+
+  <div class="row">
+      <h3 class="card-des">{{$key->module->getDescription()}}</h3>
+  </div>
+
+</div>
+
+<div class="col">
+    <div class=s>
+
+    <a class="button" href="/module/{{$key->module->getSlug()}}">COMEÇAR</a>
+    </div>
+</div>
+
+</div>
+                      </div>
+                    
                 @endforeach
+                </div>
                   
 
                 </div>
               </div>
             </div>
           </div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
-  <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM3.5 3h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z"/>
-</svg>
+          
     </div>
 
     <onda>
@@ -225,3 +252,17 @@
 
    
 @endsection
+
+
+<!-- 
+<div class="box_two">
+                        <img class="" src="{{$key->module->url_image}}" alt="module image">
+                        <h3>{{$key->module->getTitle()}}</h3>
+                        <h3>{{$key->module->getDescription()}}</h3> 
+                        <a href="/module/{{$key->module->getSlug()}}">COMEÇAR</a>
+                    </div> -->
+
+
+
+
+

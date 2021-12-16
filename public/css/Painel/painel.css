@@ -1,18 +1,12 @@
-
-
-body{
- 
-  
-}
-
-
-
 :root {
   /*========== Colors ==========*/
    --cor-primaria: #4BF1F7;
     --cor-secundaria: #00D8FF;
     --cor-terciaria:#00fcfc;
   }
+
+
+ 
   
   .box_one{
     background: #FFFFFF;
@@ -20,21 +14,171 @@ body{
     box-sizing: border-box;
     box-shadow: 0px 5px 0px #E5E5E5;
     border-radius: 20px;
-    height: 65vh;
+    height: 70vh;
     margin-top: 10%; 
     
   }
 
-  .box_two{
+  .scroll{
     background: #FFFFFF;
     border: 3px solid #E5E5E5;
     box-sizing: border-box;
     box-shadow: 0px 5px 0px #E5E5E5;
     border-radius: 20px; 
-    height: 65vh;
+    height: 70vh;
     margin-top: 10%;
     margin-block-end: 10%;
+    width: 100%;
+    overflow-x:scroll;
   }
+
+  .modulo-image{
+   
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    
+  }
+
+  .card-titulo{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 150%;
+    color: #000000;
+    margin-left: -15%;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-75%, 40%);
+
+  }
+
+  .card-des{
+    font-family: Nunito;
+    margin-left: -15%;
+    font-weight: 800;
+    color: #000000;
+    white-space: nowrap;
+    font-size: 100%;
+
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-75%, 30%);
+  }
+
+  .card-99{
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 0px var(--cor-primaria);
+    border-radius: 20px;
+    height: 15vh;
+    width: 95%;
+
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -210%);
+  }
+
+  .s{
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-60%, -40%);
+  }
+
+  .card-picture{
+    width: 12vh;
+    height: 10vh;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-80%, -35%);
+  
+  }
+
+
+  .modulo-image{
+    width: 60%;
+    height: 60%;
+  }
+
+  .elemento-2{
+    font-size: 150%;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 200%;
+    color: #d52020;
+ 
+    
+  }
+
+  .titulo-2{
+    background: #b31111;
+    border: 3px solid #E5E5E5;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 0px #E5E5E5;
+    border-radius: 20px;
+    height: 10vh;
+    width: 20vh;
+
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -110%);
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   .bi{
     position: relative;
@@ -110,7 +254,7 @@ body{
 
   .titulo{
     background: #FFFFFF;
-    border: 3px solid #E5E5E5;
+    border: 1px solid #E5E5E5;
     box-sizing: border-box;
     box-shadow: 0px 5px 0px #E5E5E5;
     border-radius: 20px;
@@ -199,6 +343,84 @@ body{
     .box_two{
       height: 75vh;
     }
+    .card-picture{
+      transform: translate(-45%, -60%);
+    }
+
+    .card-titulo{
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 150%;
+      color: #000000;
+      margin-left: -15%;
+      position: relative;
+      top:50%;
+      left:50%;
+      transform: translate(-35%, 40%);
+  
+    }
+  
+    .card-des{
+      font-family: Nunito;
+      margin-left: -15%;
+      font-weight: 800;
+      color: #000000;
+      white-space: nowrap;
+      font-size: 100%;
+  
+      position: relative;
+      top:50%;
+      left:50%;
+      transform: translate(-40%, 30%);
+    }
+  
+    .card-99{
+      background: #FFFFFF;
+      border: 5px solid #E5E5E5;
+      box-sizing: border-box;
+      box-shadow: 0px 5px 0px var(--cor-primaria);
+      border-radius: 20px;
+      height: 15vh;
+      width: 95%;
+  
+      position: relative;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -210%);
+  
+  
+    }
+  
+    .card-picture{
+      width: 12vh;
+      height: 10vh;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      
+      position: relative;
+      top:50%;
+      left:50%;
+      transform: translate(-35%, -35%);
+    
+    }
+
+    .button{
+      width: 110%;
+      font-size: 80%;
+
+      
+      
+    }
+
+    .s{
+      position: fixed;
+      top:50%;
+      left:50%;
+      transform: translate(110%, -35%);
+    }
+  }
 
 
     @media (max-width: 575.98px) {
@@ -208,7 +430,10 @@ body{
     margin-left: 7%;
       }
     }
-  }
+  
+
+
+  
 
 
 
