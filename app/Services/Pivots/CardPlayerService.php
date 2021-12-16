@@ -13,4 +13,8 @@ class CardPlayerService extends AbstractService
         return $this->repository->store($card_id, $player_id);
     }
 
+    public function especific($card_id, $player_id){
+        return  $this->repository->especific($card_id, $player_id);
+    }
+
 }

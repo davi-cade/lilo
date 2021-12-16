@@ -16,5 +16,8 @@ class CardPlayerRepository extends AbstractRepository
         ]);
     }
 
+    public function especific($card_id, $player_id){
+        return $this->model::where('card_id', $card_id)->where('player_id', $player_id)->first();
+    }
     
 }

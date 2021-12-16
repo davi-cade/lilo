@@ -46,10 +46,9 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::resource('group', App\Http\Controllers\ResourceControllers\GroupController::class);
         Route::post('/group/publish', 'App\Http\Controllers\ResourceControllers\GroupController@store');
 
-        Route::group(['middleware' => ['enoughChances']], function() {
-            Route::get('/module/{slug}/{level}', App\Http\Controllers\user\QuizzController::class);
-        });
+        Route::get('/module/{slug}/{level}', App\Http\Controllers\user\CarroselController::class);
 
+        Route::get('/module/{slug}/{level}/quizz', App\Http\Controllers\user\QuizzController::class);
     });
           
 });

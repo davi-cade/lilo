@@ -18,13 +18,9 @@
     <div class="container">
         <div class="row one">
             <div class="cardup">
-                <h5 class="elemento">Atividade</h5>
+                <h5 class="elemento"></h5>
             </div>
         </div>
-
-
-
-
         <div class="box">
 
             <div class="row tow">
@@ -38,18 +34,12 @@
                  
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                       <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <video src="Facil/sapo.mp4"  class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="Facil/Tigre.mp4" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="Facil/urso.mp4" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                          <img src="Facil/urso.mp4" class="d-block w-100" alt="...">
-                        </div>
+                        @foreach($cards as $key)
+                            <div class="carousel-item active">
+                                <video class="d-block w-100" src="{{asset($key->url_video)}}" controls autoplay muted loop></video>
+                                <h3>{{$key->title}}</h3>
+                            </div>
+                        @endforeach
                       </div>
                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -62,9 +52,10 @@
                   </div>
               </div>
               </div>
+              <button onclick="window.location.href='/module/{{$slug}}/{{$num}}/quizz'" class="btn1">PLAY</button>
 
 
-<!-- container II -->
+              <!-- container II -->
               <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="box_two">
                     <div class="titulo">

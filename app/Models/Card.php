@@ -31,6 +31,10 @@ class Card extends Model
         return $this->difficulty_level;
     }
 
+    public function CardPlyer(){
+        return $this->hasMany(Pivots\CardPlyer::class, 'admin_id');
+    }
+
     public function task(){
         return $this->belongsTo(Task::class, 'id', 'belonging_module_id');
     }

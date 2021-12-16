@@ -23,6 +23,22 @@ class Player extends Model
         return $this->nickname;
     }
 
+    public function setScore($var){
+        $this->score += $var;
+    }
+
+    public function setChances($var){
+        $this->chances += $var;
+    }
+
+    public function setCoins($var){
+        $this->coins += $var;
+    }
+
+    public function setRubys($var){
+        $this->rubys += $var;
+    }
+
     public function registe(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }

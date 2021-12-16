@@ -23,7 +23,17 @@ class CardPlayer extends Model
         return $this->belongsTo(Player::class, 'player_id');
     }
 
+    public function getAssimilated(){
+        return $this->assimilated;
+    }
+    
+    public function setAssimilated($var){
+        return $this->assimilated = $var;
+    }
+
     public function card(){
         return $this->belongsTo(Card::class, 'card_id');
     }
+
+
 }
