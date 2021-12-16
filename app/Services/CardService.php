@@ -21,4 +21,8 @@ class CardService extends AbstractService
         }
         return 'sucesso';
     }
+
+    public function getCards($id, $num){
+        $this->repository->getCards($id, $num);
+    }
 }

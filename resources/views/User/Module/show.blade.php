@@ -46,7 +46,7 @@
                       </div>
 
                       <div class="row">
-                        <button onclick="window.location.href='/module/{{$module->getSlug()}}/{{1}}'" class="btn1">PLAY</button>
+                        <button onclick="window.location.href='/module/{{$module->getSlug()}}/easy'" class="btn1">PLAY</button>
                     </div>
 
                   </div>
@@ -67,7 +67,7 @@
                        </div>
  
                        <div class="row">
-                         <button onclick="window.location.href='/module/{{$module->getSlug()}}/{{2}}'" class="btn2">PLAY</button>
+                         <button onclick="window.location.href='/module/{{$module->getSlug()}}/medium'" class="btn2">PLAY</button>
                      </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                        </div>
  
                        <div class="row">
-                         <button onclick="window.location.href='/module/{{$module->getSlug()}}/{{3}}'" class="btn3">PLAY</button>
+                         <button onclick="window.location.href='/module/{{$module->getSlug()}}/hard'" class="btn3">PLAY</button>
                      
                      </div>
                 </div>

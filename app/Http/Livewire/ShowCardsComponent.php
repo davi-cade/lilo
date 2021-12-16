@@ -21,7 +21,7 @@ class ShowCardsComponent extends Component
     public $difficultyLevel;
 
     protected $rules = [
-        'title' =>['required', 'string', 'min:5', 'max:255'],
+        'title' =>['required', 'string', 'min:1', 'max:255'],
         'video' => ['required', 'file', 'mimetypes:video/mp4,video/avi,video/mpeg', 'max:1999']
     ];
 
@@ -47,6 +47,10 @@ class ShowCardsComponent extends Component
         $module = $moduleService->getBySlug($this->post);
 
         $vid ='/'.'storage/'.($this->video->store('video/'.$module->getTitle().'/'.$this->title));
+
+        if ($this->difficultyLevel == null) {
+            $this->difficultyLevel= "1";
+        }
 
         $card = $service->store($this->title, $vid, $this->difficultyLevel, $module->getId());
 

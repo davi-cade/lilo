@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::post('/group/publish', 'App\Http\Controllers\ResourceControllers\GroupController@store');
 
         Route::group(['middleware' => ['enoughChances']], function() {
-            Route::view('/module/{slug}/{level}', 'Atividade.atividade');
+            Route::get('/module/{slug}/{level}', App\Http\Controllers\user\QuizzController::class);
         });
 
     });

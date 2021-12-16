@@ -17,7 +17,7 @@ class CreateCardsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('url_video');
-            $table->enum('difficulty_level', [1, 2, 3]);
+            $table->enum('difficulty_level', ["easy", "medium", "hard"]);
             $table->unsignedBigInteger('belonging_module_id');
             $table->timestamps();
         });

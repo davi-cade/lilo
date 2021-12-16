@@ -16,9 +16,9 @@
 
         <label for="difficultyLevel">Selecione o nivel de dificuldade</label>
         <select name="difficultyLevel" id="difficultyLevel" wire:model="difficultyLevel">
-            <option value="1" default>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="easy" selected>Facil</option>
+            <option value="medium">Medio</option>
+            <option value="hard">Dificil</option>
         </select>
 
         <button type="submit">Cria</button>
