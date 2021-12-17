@@ -40,7 +40,7 @@ class LauncherExtraService
     public function cardStarter($id){
         $cards = $this->cardService->getAll();
         foreach ($cards as $key){
-            $this->cardPlayerService->store($id, $key->getId());
+            $this->cardPlayerService->store($key->getId(), $id);
         }
     }
 
