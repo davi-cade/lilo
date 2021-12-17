@@ -94,7 +94,7 @@
                                 <h3 class="fs-2"> {{$totalPlayer}}</h3>
                                 <p class="fs-5">Players</p>
                             </div>
-                            <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            <!-- <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i> -->
                         </div>
                     </div>
 
@@ -104,8 +104,8 @@
                                 <h3 class="fs-2">{{$totalModules}}</h3>
                                 <p class="fs-5">Módulos</p>
                             </div>
-                            <i
-                                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            <!-- <i
+                                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i> -->
                         </div>
                     </div>
                      
@@ -116,7 +116,7 @@
                                 <p class="fs-5">ADM</p>
                                 @endrole
                             </div>
-                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            <!-- <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i> -->
                         </div>
                     </div>
                     
@@ -127,7 +127,7 @@
                                 <h3 class="fs-2">0</h3>
                                 <p class="fs-5">Grupos</p>
                             </div>
-                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            <!-- <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i> -->
                         </div>
                     </div>
                 </div>

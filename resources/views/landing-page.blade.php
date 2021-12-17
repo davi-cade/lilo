@@ -26,7 +26,7 @@
                             <a href="#about" class="nav__link">Sobre</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#services" class="nav__link">Serviços</a>
+                            <a href="#services" class="nav__link">Componentes</a>
                         </li>
                         <li class="nav__item">
                             <a href="#contact" class="nav__link">Contato</a>
@@ -74,7 +74,8 @@
                 <div class="about__container grid">
                     <div class="about__data">
                         <h2 class="section__title-center">Descubra um pouco mais<br> sobre os desenvolvedores!</h2>
-                        <p class="about__description">Somos uma dupla de estudantes do curso Técnico em Informática do IFPE campus Garanhuns, que se dedicou a criar um website gratuito que ajuda a alfabetizar qualquer criança da sua própria casa.
+                        <p class="about__description">Nos dedicamos a desenvolver uma aplicação Web, com objetivo de ajudar e difundir o aprendizado de LIBRAS para crianças e jovens não PCDs, usamos técnicas de gamificação na construção do nosso projeto, elemento esse que  ajuda no aprendizado e absorção do conteúdo exposto.
+
 
                         </p>
                     </div>
@@ -89,7 +90,7 @@
                 <div class="security__container grid">
                     <div class="security__data">
                         <h2 class="section__title-center">Seu apredizado é <br> importante!</h2>
-                        <p class="security__description">Aproveite e mergulhe no mundo de libras com todos os 10 modulos gartuitos.
+                        <p class="security__description">Aproveite e mergulhe no mundo de libras com todos os 10 módulos gratuitos.
                         </p>
                     </div>
 
@@ -107,9 +108,9 @@
                        
                             <img src="/img/home-ilustration.svg" svg class="svg__color services__img" alt="...">
 
-                        <p class="services__description">Aproveite e mergulhe no mundo de libras com os 10 modulos gartuitos.</p>
+                        <p class="services__description">Aproveite e mergulhe no mundo de libras com os 10 módulos gartuitos.</p>
                         <div>
-                            <a href="#" class="button button-link">Learn More</a>
+                            <a href="#" class="button button-link">COMEÇAR</a>
                         </div>
                     </div>
 
@@ -120,7 +121,7 @@
 
                         <p class="services__description">Quer ir além do vocabulario basico de Libras? O Lilo te oferece isso e com um custo acessivel!</p>
                         <div>
-                            <a href="#" class="button button-link">Learn More</a>
+                            <a href="#" class="button button-link">COMEÇAR</a>
                         </div>
                     </div>
 
@@ -131,7 +132,7 @@
 
                         <p class="services__description">Crie ou entre em grupos e socialize com os outros players!</p>
                         <div>
-                            <a href="#" class="button button-link">Learn More</a>
+                            <a href="#" class="button button-link">COMEÇAR</a>
                         </div>
                     </div>
                 </div>

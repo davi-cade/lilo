@@ -9,7 +9,10 @@
         @if ($yes === 0)
             <div class="col-14 col-sm-6 col-md-6 col-lg-5 col-xl-5">
                 <div class="box_one">
-                    <video preload="auto" muted autoplay loop><source src="{{asset($card[0]->url_video)}}"></video>
+                 
+                  <video src="{{asset($card[0]->url_video)}}"  muted autoplay loop><source ></video>
+                  
+                   
                     {{$card[0]->title}}
                 </div>
 
