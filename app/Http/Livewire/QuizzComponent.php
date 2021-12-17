@@ -56,7 +56,7 @@ class QuizzComponent extends Component
         if($this->modulesCards == null){
             $player->setScore($this->score); 
             $player->save();
-            redirect('/home/module/{$this->slug}');
+            redirect('/home');
         }
 
         foreach ($this->modulesCards as $key) {
